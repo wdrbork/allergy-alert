@@ -55,15 +55,15 @@ Where I was blocked: Nothing
 
 ### Caitlyn Rawlings
 #### Progress and Issues:
-What I did:
+What I did: Contributed to the project requirements document. Discussed and decided on my role with my group.
 
-What worked: 
+What worked: Communicating with my group about what roles we needed and what we were all comfortable doing. Discussing with TA to understand project needs.
 
-What I learned:
+What I learned: Learned about the benefits of thinking about and developing use cases. 
 
-Where I had trouble:
+Where I had trouble: Thinking about the architecture and design of the project because I haven’t really done a project like this before.
 
-Where I am blocked: 
+Where I am blocked: I think once we decide on the format of out data then it will be easier to get started, but right now I am blocked by that.
 
 #### Plans for next week:
 - Make and share doc for architecture and design milestone
