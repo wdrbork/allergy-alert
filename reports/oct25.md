@@ -35,19 +35,20 @@ The next deadline to work toward will be: implement search logic by 11/4
 - Make a very tiny full stack project so that I can get a better understanding of combining the front-end with the back-end
 
 #### Progress and Issues:
-What I did: 
+What I did: I established the database on MongoDB and implemented it into our repository. I included two “collections” (basically sub-databases): one for user accounts, and the other for all the recipes we will be storing. While implementing it, I also added documentation to the load_db.py file that includes how to use important database functions such as find(), insert_one(), and delete_one(). I also watched several YouTube videos that covered the basics of using MongoDB and a REST API, two things that we are still not sure if we are going to use.
 
-What worked: 
+What worked: Doing additional research on how MongoDB and REST APIs work gave me more confidence when it came to using those tools to create a functioning front-end and back-end connection. More research still needs to be done, but I feel like I have a basic understanding of those tools at the moment.
 
-What I learned: 
+What I learned: I learned about the various MongoDB functions that we could use to insert and remove entries in the database. I also learned how to use HTTP requests to get information from the database as well as send that information back using HTTP responses.
 
-Where I had trouble: 
+Where I had trouble: I had some trouble catching up with new ideas that the group came up with since I could not attend last Thursday’s meeting. This has resulted in me falling behind the others in my group, although I hope to get a full understanding of our plan over the next few days through team communication and reading everybody else’s individual status reports.
 
-Where I was blocked: 
+Where I was blocked: I had an interview this past Thursday that prevented me from going to the meeting, so I feel a little behind when it comes to how we will be implementing the database. I also tested positive for COVID this Tuesday, so I will not be able to attend the meeting this Thursday either.
 
-#### Plans for next week:
--
--
+#### Plans for next week: 
+-Get a full understanding of how we want to store the data as well as search through it via complex searches
+-Learn more about the MERN technology stack as we might be using it going forward
+-Prepare the database for the inclusion of recipes by establishing attributes for each entry (if we continue with the database idea)
 
 ### Phillip Phan
 #### Last Week's Goals:
