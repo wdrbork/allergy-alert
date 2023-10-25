@@ -29,6 +29,8 @@ The next deadline to work toward will be: ...
 ## Individual Contributions
 ### Riley Bork
 #### Last Week's Goals:
+- Learn more about MongoDB and how we might want to implement it
+- Make a very tiny full stack project so that I can get a better understanding of combining the front-end with the back-end
 
 #### Progress and Issues:
 What I did: 
@@ -42,10 +44,13 @@ Where I had trouble:
 Where I was blocked: 
 
 #### Plans for next week:
-- Learn more about MongoDB and how we might want to implement it
-- Make a very tiny full stack project so that I can get a better understanding of combining the front-end with the back-end
+-
+-
+
 ### Phillip Phan
 #### Last Week's Goals:
+- I plan to learn more about MongoDB
+- Look at the datasets and plan a structure for the database
 
 #### Progress and Issues:
 What I did: 
@@ -59,29 +64,32 @@ Where I had trouble:
 Where I was blocked: 
 
 #### Plans for next week:
-- I plan to learn more about MongoDB
-- Look at the datasets and plan a structure for the database
+-
+-
 
 ### Caitlyn Rawlings
 #### Last Week's Goals:
-
-#### Progress and Issues:
-What I did: 
-
-What worked: 
-
-What I learned: 
-
-Where I had trouble: 
-
-Where I am blocked: 
-
-#### Plans for next week:
 - Make and share doc for architecture and design milestone
 - Figure out what we are doing for frontend and review some react/JS
 
+#### Progress and Issues:
+What I did: Made frontend mockup. Worked on scheldule/testing/documentation parts for architechture and design milestone.
+
+What worked: Using template on figma instead of starting for stratch for design. Using requirements and group members ideas to determine what we need in the ui to deliver the functionality we want.
+
+What I learned: How to use figma. Learned what we are using for recipe data + how we are planning on setting up architecture and design. 
+
+Where I had trouble: Writing out scheldule because it is difficult to estimate how long tasks will take and to determine what tasks will need to be completed to the specificity that was beign asked for in the instructions.
+
+Where I am blocked: Don't want to start coding because I hate coding
+
+#### Plans for next week:
+- 
+-
+
 ### Jack Rosenbloom
 #### Last Week's Goals:
+- Learn css
 
 #### Progress and Issues:
 What I did:
@@ -95,10 +103,14 @@ Where I had trouble:
 Where I am blocked: 
 
 #### Plans for next week:
-- Learn css
+-
+-
 
 ### Aakanksh Yadav
 #### Last Week's Goals:
+- Finalize the data format to use to have our front and back end communicate (with the people that will be working on the back end)
+- Look into ReactJS and any other frontend options so that I can decide on which to use and learn any skills I may need for this project
+- Help backend developers with any work they may need to do for setting up the MongoDB database, etc.
 
 #### Progress and Issues:
 What I did: 
@@ -112,6 +124,5 @@ Where I had trouble:
 Where I am blocked: 
 
 #### Plans for next week:
-- Finalize the data format to use to have our front and back end communicate (with the people that will be working on the back end)
-- Look into ReactJS and any other frontend options so that I can decide on which to use and learn any skills I may need for this project
-- Help backend developers with any work they may need to do for setting up the MongoDB database, etc.
+-
+-
