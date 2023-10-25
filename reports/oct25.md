@@ -91,23 +91,23 @@ Where I am blocked: Need to learn some expressJS so I can help with frontend
 - Work on developing README doc
 
 ### Jack Rosenbloom
-#### Last Week's Goals:
-- Learn css
+#### Last Week’s Goals:
+Last time my goal was to learn and become more familiar with css and make a mock website for our project.
 
 #### Progress and Issues:
-What I did:
+What I did: Began learning CSS, made a sample website with basic server connection through js. Also came up with ideas for the structure, design, and implementation of the website.
 
-What worked: 
+What worked: I found that video tutorials, forums, and online resources were a great place to start adventuring into css and learn the basics. I also got into HTML because of this since HTML and CSS go hand in hand quite a bit during web development.
 
-What I learned: 
+What I learned: I learned general structure and design elements in CSS, how to begin scaling projects, as well as some basic design principles in CSS.
 
-Where I had trouble: 
+Where I had trouble: I didn’t have a ton of trouble since the hard part doesn’t come much until later when I have to connect the front end to the CSS for the website and configure all the fun stuff. Most of my work this week consisted of figuring out fundamentals, not diving into the upper echelons of css development.
 
-Where I am blocked: 
+Where I am blocked: Not blocked yet. Just doing what I can and keeping up to date with the team.
 
 #### Plans for next week:
--
--
+- Polish mock website and create more design structure ideas.
+- Connect with team members to discuss further design choices.
 
 ### Aakanksh Yadav
 #### Last Week's Goals:
