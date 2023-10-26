@@ -116,16 +116,18 @@ Where I am blocked: Not blocked yet. Just doing what I can and keeping up to dat
 - Help backend developers with any work they may need to do for setting up the MongoDB database, etc.
 
 #### Progress and Issues:
-What I did: 
+What I did: I contributed a lot to the first 2 sections of the architecture and design document; I also went through and made any edits in the contents of the document to reflect changes in our plans over the course of this last week; I helped with the risk analysis section of part 3; I looked into a number of services that we could use for our current plan (as far as hosting our front and back ends goes) and suggested alternatives to the MongoDB-based design when we had reason to worry about the scope of the project getting too big (although we haven't made any changes to our architecture right now, the research I did could come into use later depending on how progress goes); I helped research how a MERN database works and helped the backend developers get a clearer idea of what they will have to work on next; I researched a bit about frontend technologies that we may use but I will have to look into that more
 
-What worked: 
+What worked: Frequent communication, as always, was very helpful and an effective way of getting a more holistic view on how our project is panning out (and what decisions we will have to make next regading our system's architecture); researching independently and getting a good idea of what all of the tools that we are thinking of using can fully do has been quite enlightening (and is helping frame how exactly I am going to construct the frontend when things come to that)
 
-What I learned: 
+What I learned: I learned about what the MERN stack is; I learned what a REST API is and why we may need that in the current design for our project; I learned what search indexing services are (and why that could be a component in an 'idealized' version of what we are making as it goes far beyond the scope of our project); I learned a bit more from the backend developers on our team about the difficulties that we might face due to the sheer size of the dataset that we are using in our backend
 
-Where I had trouble: 
+Where I had trouble: I have been struggling a bit with understanding what a reasonable scope for our project might be as a key part of it is making the project scalable (even if we don't actually implement the harder and bigger-scale goals); I have been researching the architecture a lot and it has been a bit overwhelming to pick one without spending an absurd amount of time getting to know each one
 
-Where I am blocked: 
+Where I am blocked: Since frontend work depends quite a bit on the backend work, I have had to wait a bit for the backend work to progress before I can start building my frontend around it. This is an understandable block but, considering the fact that I feel like there might be a lot of work that will have to go into the frontend, it is a bit stressful
 
 #### Plans for next week:
--
--
+- Research ReactJS more and how I may be able to use it to implement some of the more complex components of our project
+- Research ExpressJS more in detail so that I can maybe start working around it as I construct the frontend (while the backend is being finished)
+- Start designing a search algorithm as soon as the data format for the backend is decided upon
+- Help with making a mock version of the website
