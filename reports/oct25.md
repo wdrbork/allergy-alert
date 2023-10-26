@@ -13,11 +13,11 @@ What we did: Completed architecture and design milestone. Found a dataset of rec
 
 What worked: Team communication worked well through discord. Setting up schedule to layout our tasks so we have a better idea of the project timeline and what will be feasible.
 
-What we learned: Learned about how MongoDB will interface with expressJS
+What we learned: Learned about how MongoDB will interface with expressJS. 
 
-Where we had trouble: 
+Where we had trouble: We encountered difficulties in understanding how MongoDB will interface with ExpressJS. While progress was made, there were still uncertainties about the integration of these technologies. This lack of clarity led to some delays in setting up our database and developing the backend.
 
-Where we are blocked: 
+Where we are blocked: There are knowledge gaps in specific areas of the tools that we are using. These gaps have resulted from varying levels of familiarity with the technologies we are planning on utilizing.
 
 #### Plans for next week:
 - Create REST API
