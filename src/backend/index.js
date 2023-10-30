@@ -1,33 +1,26 @@
-const path = '../backend/node_modules/mongodb'
-const { MongoClient, ServerApiVersion } = require(path);
-const uri = "mongodb+srv://wdrb2001:E1ArjPx52iukOs7U@cluster0.vdcfw8l.mongodb.net/?retryWrites=true&w=majority";
+import app from './server.js'
+import mongodb from "mongodb"
+import dotenv from "dotenv"
+dotenv.config()
+const MongoClient = mongodb.MongoClient
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const cluster = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+const port = process.env.PORT || 5000
 
-const database = cluster.db('allergy-alert')
-const recipes = database.collection('recipes')
+MongoClient.connect(
+    process.env.ALLERGYALERT_DB_URI,
+    {
+        wtimeoutMS: 2500 }
+    )
+    .catch(err => {
+        console.error(err.stack)
+        process.exit(1)
+    })
+    .then(async client => {
+        app.listen(port, () => {
+            console.log(`listening on port ${port}`)
+        })
+    })
 
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await cluster.connect();
-    // Send a ping to confirm a successful connection
-    await cluster.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await cluster.close();
-  }
-}
-run().catch(console.dir);
-  
 // ### Important Functions ######################################################
 // #
 // # recipes.insertOne(json_dict)
