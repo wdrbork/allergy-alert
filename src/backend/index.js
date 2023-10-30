@@ -23,6 +23,9 @@ MongoClient.connect(
 
 // ### Important Functions ######################################################
 // #
+// # recipes = MongoClient.db(process.env.ALLERGYALERT_NS).collection('recipes')
+// #   - Gets access to the "recipes" collection in the database
+// # 
 // # recipes.insertOne(json_dict)
 // #   - Inserts a single object into the "recipes" collection
 // #   - json_dict example: {"_id": 1, "name": "Chocolate Cake", "ingredients": ["milk", "eggs", "flour"]}

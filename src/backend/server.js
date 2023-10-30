@@ -11,3 +11,6 @@ app.use("/api/v1/recipes", recipes)
 app.use("*", (req, res) => res.status(404).json({error: "Not Found"}))
 
 export default app
+
+// Note: to run the server, run the command "nodemon server index.js" in the 
+// terminal (assuming Node.js is already installed)
