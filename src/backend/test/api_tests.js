@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import request from 'supertest';
 
-// Import your Express app (or the router) and create a server for testing
 import app from '../server.js';
 
 // follow this format for adding a test for the api
