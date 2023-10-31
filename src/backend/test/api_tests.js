@@ -1,9 +1,10 @@
 import { expect } from 'chai';
-import request from 'supertest'; // You might need to install supertest
+import request from 'supertest';
 
 // Import your Express app (or the router) and create a server for testing
 import app from '../server.js';
 
+// follow this format for adding a test for the api
 describe('Hello World Route', () => {
   it('should return "Hello World" when GET /', (done) => {
     request(app) // Use supertest to make a request to your Express app
