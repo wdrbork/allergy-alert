@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import request from 'supertest';
 
-import app from '../server.js';
+import app from '../../src/backend/server.js';
 
 // follow this format for adding a test for the api
 describe('Hello World Route', () => {
