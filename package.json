@@ -1,32 +1,12 @@
 {
-  "name": "allergy-alert",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wdrbork/allergy-alert.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wdrbork/allergy-alert/issues"
-  },
-  "homepage": "https://github.com/wdrbork/allergy-alert#readme",
   "dependencies": {
+    "chai": "^4.3.10",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mongodb": "^6.2.0",
+    "mocha": "^10.2.0",
+    "mongoose": "^7.6.4",
     "nodemon": "^3.0.1",
     "supertest": "^6.3.3"
-  },
-  "devDependencies": {
-    "chai": "^4.3.10",
-    "mocha": "^10.2.0"
   }
 }
