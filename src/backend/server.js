@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.use("/", hello)
+app.use("/", hello)  // This will eventually be the URL to our main page
 app.use("/api/v1/recipes", recipes)
 app.use("*", (req, res) => res.status(404).json({error: "Not Found"}))
 

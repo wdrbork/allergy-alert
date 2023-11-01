@@ -1,5 +1,4 @@
-import { ReturnDocument } from "mongodb"
-
+import mongodb from "mongodb"
 let recipes
 
 export default class RecipesDAO {
@@ -21,7 +20,8 @@ export default class RecipesDAO {
         try {
             recipes = await conn
                     .db(process.env.ALLERGYALERT_NS)
-                    .collections("recipes")
+                    .collection("recipes")
+            
         } catch (e) {
             console.error(
                 `Unable to establish a collection handle in recipesDAO: ${e}`
@@ -30,7 +30,7 @@ export default class RecipesDAO {
     }
 
     static async getRecipes({ filters = null } = {}) {
-        let query
+        let query = {}
 
         // Look for recipes that contain the given name, if one is given
         if (filters && "name" in filters) {
@@ -42,7 +42,7 @@ export default class RecipesDAO {
             cursor = await recipes.find(query)
         } catch (e) {
             console.error(`Unable to issue find command, ${e}`)
-            return { Recipe: "", Total: 0, Ingredients: ""}
+            return { recipesList: [], numRecipes: 0 }
         }
 
         try {
