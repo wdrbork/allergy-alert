@@ -1,3 +1,5 @@
+// Note: this class is strictly for testing purposes
+
 import express from "express"
 
 const router = express.Router()
