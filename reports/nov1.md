@@ -8,21 +8,24 @@
 - Develop README doc more
 
 #### Progress and Issues:
-What we did: 
+What we did: We got the API set up. We developed our readme doc to describe our repository layout and the goals of our project. We connected api to database. We automated tests and set up ci.
 
-What worked: 
+What worked: What worked was using combinations of tools that have documentation for how to use them and sources for help troubleshooting, as well as team communication.
 
-What we learned: We learned a good strategy for determining what tools we could utilize and if they would work well together is to see if they have been paired together previously. Melanie (our TA) recemended that we check on youtube as well as looking for other resources to see if there is a lot of information on how to deal with issues with the pairing to determine if it is a commonly used set of tools.
+What we learned: We learned a good strategy for determining what tools we could utilize and if they would work well together is to see if they have been paired together previously. Melanie (our TA) recemended that we check on youtube as well as looking for other resources to see if there is a lot of information on how to deal with issues with the pairing to determine if it is a commonly used set of tools. We learned about different ci options and how to use them.
 
-Where we had trouble: 
+Where we had trouble: We had trouble implementing the ci because this was something that was new to us.
 
-Where we are blocked:
+Where we are blocked: We are blocked on integrating out frontend with the api/database.
+
 #### Plans for next week:
--
--
--
+- Beta Release
+- Make user search feature interface with database
+- Decide on server host
+- Complete basic frontend formatting
+- Implement adding/editing allergies
 
-The next deadline to work toward will be: 
+The next deadline to work toward will be: the beta release
 
 ## Individual Contributions
 ### Riley Bork
@@ -72,19 +75,24 @@ Where I was blocked:
 - Work on developing README doc
 
 #### Progress and Issues:
-What I did: 
+What I did: I followed a tutorial on how to build a REST API Using Node, Express, 
+and MongoDB to try to understand the peices of it. I made test for the api. I added scripts
+to the package.json file. I updated the living document for this weeks milestone.
 
-What worked: 
+What worked: Following the tutorial was helpful for me to understand the peices of the api better.
 
-What I learned: 
+What I learned: I learned how to make a very simple api and how to use Postman to test api call.
 
-Where I had trouble: 
+Where I had trouble: Before I tried the tutorial, I tried a premade repo and couldn't get it to work,
+but the tutorial I think the tutorial ended up being better becasue it was ore interactive.
 
-Where I was blocked: 
+Where I was blocked: I was a little blocked with the api interacting with the database. I got it to work
+on the one I made for the tutorial I followed, but getting it to work with our database for our recipes was
+not working.
 
 #### Plans for next week:
--
--
+- Work on tests for api
+- Work on incoorperating frontend user interaction with the api calls
 
 ### Jack Rosenbloom
 #### Last Week’s Goals:
