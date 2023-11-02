@@ -34,7 +34,7 @@ export default class RecipesDAO {
 
         // Look for recipes that contain the given name, if one is given
         if (filters && "name" in filters) {
-            query = { $text: { $search: filters["name"]}}
+            query = { "name": { $regex: filters["name"] } }
         }
 
         let cursor
