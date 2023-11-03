@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha --recursive",
-    "start": "nodemon server index.js"
+    "start": "nodemon ./src/backend/server.js ./src/backend/index.js"
   },
   "repository": {
     "type": "git",
