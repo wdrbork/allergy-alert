@@ -24,7 +24,7 @@ node_modules: Holds various libraries and dependencies
 3. Ensure that you have the latest version of Node.js installed
     - Run `node -v` on your device's terminal
     - If an error occurs, go [here](https://nodejs.org/en/download) to download the latest version of Node.js
-4. Install nodemon using the command `npm install -g nodemon`. This will be used to start up the server
+4. Install dependencies using the command `npm install`
 5. Change to the backend directory using `cd src/backend`
 6. Start the server using the command `nodemon server index.js`
     - If you receive an error saying that nodemon cannot be loaded because running scripts is disabled on your system, you will need to change your system's execution policy
