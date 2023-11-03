@@ -5,10 +5,8 @@ import RecipesDAO from "./dao/recipesDAO.js"
 dotenv.config()
 const MongoClient = mongodb.MongoClient
 
-console.log("PORT = " + process.env.PORT)
 const port = process.env.PORT || 5000
 
-console.log(process.env.ALLERGYALERT_DB_URI)
 MongoClient.connect(
     process.env.ALLERGYALERT_DB_URI,
     {
