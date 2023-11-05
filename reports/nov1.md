@@ -109,10 +109,15 @@ not working.
 Last time my goal was to polish the mock website and connect with team members to discuss further design choices. This went very well, and I even realized that Aakanksh has prior experience with CSS and was able to offer some advice and/or guidance.
 #### Progress and Issues:
 What I did: Dove deeper into the realm of CSS, incorporating more essential parts into the website for the app. Additionally, I designed a logo on iPad and included it on the website and asked for team member input on the new design.
+
 What worked: Using online resources made it simple to learn more advanced CSS and the general structure of CSS-based website design. Also asking for peers' thoughts allowed me to gain alternate perspectives on what design choices to use.
+
 What I learned: I learned intermediate CSS, good practices for CSS as well as good style, more on scaling projects, in addition to some online tools for designing concepts and the workflow between iPad and CSS.
+
 Where I had trouble: I finally began to meet some challenges this week, as venturing further into CSS brought general confusion, as well as a struggle to figure out organization and layout control. But perseverance was my friend.
+
 Where I am blocked: I’m still not blocked yet. If I do get blocked, I plan to reconfigure with Aakanksh on CSS developmental strategies or reach out for assistance in other forms.
+
 #### Plans for next week:
 I plan to do some polishing work and also make more designs and maybe font reworks for the logo. I was told that’s probably the best thing I can do as the UI guy since the other’s are focused on implementing the basics together to support a command line beta.
 
