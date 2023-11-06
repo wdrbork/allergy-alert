@@ -1,38 +1,109 @@
-.App {
+/* Add this CSS to your stylesheet */
+.logo-text {
+  font-size: 100px; /* Adjust the font size as needed */
+  color: #d2a73a;    /* Change the color to your preferred color */
+  text-align: center; /* Center-align the text within the header */
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* Reset headers and paragraphs */
+h1 {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+h2, h3 {
+  margin: 0;
+  padding: 40;
+}
+
+/* Set a background color and text color for the entire page */
+html, body {
+  background-color: #86c4f3;
+  background-size: cover; /* Adjust the sizing of the background image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-attachment: fixed; /* Fixed background position */
+  color: #333;
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Style the header with a background color, text color, and text alignment */
+header {
+  background-color: #86c4f3;
+  color: #fff;
   text-align: center;
+  padding: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Style the navigation menu to create a horizontal list */
+nav menu {
+  background-color: #333;
+  text-align: center;
+  padding: -10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* nav menu list */
+nav ul {
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* nav menu list items */
+nav li {
+  display: inline;
+  margin-right: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* nav menu link */
+nav link {
+  text-decoration: none;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Style the main content section */
+main content {
+  padding: 20px;
+}
+
+/* Additional styles for search bars and allergy list table */
+.search-bar {
+  display: inline-block;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #f0f0f0;
+}
+
+.search-bar input {
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #ccc;
+  outline: none;
+  width: 150px;
+}
+
+.search-bar input:focus {
+  color: #000;
+}
+
+table, th, td {
+  border: 1px solid #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: center;
 }
