@@ -6,7 +6,7 @@ import hello from "./api/hello.route.js"
 const app = express()
 
 const corsOptions = {
-    origin: "http://localhost:5000" // frontend URI (ReactJS)
+    origin: "http://localhost:3000" // frontend URI (ReactJS)
 }
 
 app.use(cors(corsOptions))

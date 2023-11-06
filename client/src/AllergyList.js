@@ -18,6 +18,7 @@ function AllergyList() {
   return (
     <div>
       <input
+        className="search-bar"
         type="text"
         placeholder="Add Allergy"
         value={currentAllergy}
