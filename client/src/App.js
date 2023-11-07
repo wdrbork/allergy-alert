@@ -17,16 +17,23 @@ function App() {
         // data is a JSON object with all recipes
         // for the beta, we will display the top 10 results
         let ten_results = [];
+        let hold_array = [];
 
         data["recipes"].forEach((recipe, index) => {
           if (index >= 10) {
             return;
           }
           
+          if (recipe.Name.toLowerCase() == query.toLowerCase()) {
           ten_results.push(recipeToString(recipe));
+          } else {
+            hold_array.push(recipeToString(recipe))
+          }
         });
+        let result = ten_results.concat(hold_array);
+        
 
-        setResults(ten_results.join("\n\n"));
+        setResults(result.join("\n\n"));
       })
   }
 

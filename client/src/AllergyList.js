@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-function AllergyList() {
-  const [allergies, setAllergies] = useState([]);
+function AllergyList({allergies, emitAddAllergyIntent}) {
   const [currentAllergy, setCurrentAllergy] = useState('');
 
   const handleInputChange = (e) => {
@@ -10,7 +9,7 @@ function AllergyList() {
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && currentAllergy.trim() !== '') {
-      setAllergies([...allergies, currentAllergy]);
+      emitAddAllergyIntent(currentAllergy);
       setCurrentAllergy(''); // Clear the input field after adding an allergy
     }
   };
@@ -27,9 +26,9 @@ function AllergyList() {
       />
       <h2>List of Allergies</h2>
       <ul>
-        {allergies.map((allergy, index) => (
+        {allergies ? allergies.map((allergy, index) => (
           <li key={index}>{allergy}</li>
-        ))}
+        )) : ""}
       </ul>
     </div>
   );
