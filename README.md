@@ -1,20 +1,23 @@
-# Allergy Alert
+# Allergy Alert v
 
 ## Idea and Goals:
 Allergy Alert is a web application designed to help users identify the percentage chance that a particular allergen or set of allergens are in a particular food. This percentage should be based on as many recipes as possible, and we plan on using as many as 2 million recipes in order to produce accurate results for different queries.
 
 ## Repository Layout:
 
-
+.github: Contains workflows for CI/CD  
+client: Contains frontend code for the website  
+&emsp;&emsp;public: Holds HTML webpages  
+&emsp;&emsp;src: Contains JavaScript/React functions for the webpages  
 reports: Contains the teams weekly status reports  
-src: Houses the source code  
-&emsp;&emsp;backend: Contains backend code for the server and database  
+server: Contains backend code related to the server and the database  
+&emsp;&emsp;src: Holds the actual source code for the backend  
 &emsp;&emsp;&emsp;&emsp;api: Contains functions for different API calls that might be made by a client  
 &emsp;&emsp;&emsp;&emsp;dao: Holds objects for each collection in our database (currently just 'recipes' and 'accounts')  
-&emsp;&emsp;frontend: Contains frontend code for the website  
-test: Contains testing scripts; the file structure underneath is identical to 'src'  
-node_modules: Holds various libraries and dependencies  
-.github: Contains workflows for CI/CD
+&emsp;&emsp;test: Contains testing code for the backend  
+.gitignore: Includes files that should not be included in git commands  
+ORG.md: Includes the people involved in this project and their roles as well as project artifacts  
+README.md: Summary of project goals as well as installation/testing instructions
 
 ## Installation Instructions
 1. Ensure that you have the latest version of Git installed
@@ -24,9 +27,9 @@ node_modules: Holds various libraries and dependencies
 3. Ensure that you have the latest version of Node.js installed
     - Run `node -v` on your device's terminal
     - If an error occurs, go [here](https://nodejs.org/en/download) to download the latest version of Node.js
-4. Install dependencies using the command `npm install`
-5. Change to the backend directory using `cd src/backend`
-6. Start the server using the command `nodemon server index.js`
+4. Install backend dependencies by navigating to the "server" directory and running `npm install`
+5. Install frontend dependencies by navigating to the "client" directory and running `npm install`
+6. After installing all dependencies, use one terminal to run `npm start` under the "server" directory and another terminal to run `npm start` under the "client" directory. This will start up the servers for both the frontend and the backend.
     - If you receive an error saying that nodemon cannot be loaded because running scripts is disabled on your system, you will need to change your system's execution policy
     - To do this on Windows, run Powershell as an administrator, and call the command `Get-ExecutionPolicy`. It should be "Restricted." Then, call `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`. This will allow you to run nodemon.
     - If you ever want to go back on this change, simply call the command `Set-ExecutionPolicy Restricted -Scope CurrentUser`
