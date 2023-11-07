@@ -19,7 +19,7 @@ server: Contains backend code related to the server and the database
 ORG.md: Includes the people involved in this project and their roles as well as project artifacts  
 README.md: Summary of project goals as well as installation/testing instructions
 
-## Installation Instructions
+## Installation and Testing Instructions
 1. Ensure that you have the latest version of Git installed
     - Run `git version` on your device's terminal
     - If an error occurs, go [here](https://git-scm.com/downloads) to download the latest version of Git
