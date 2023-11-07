@@ -25,6 +25,7 @@ function App() {
             return;
           }
           
+          // makes it so the exact match is shown first
           if (recipe.Name.toLowerCase() === query.toLowerCase()) {
           ten_results.push(recipeToString(recipe));
           } else {
