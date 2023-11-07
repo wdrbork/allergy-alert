@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+//
 function AllergyList({allergies, emitAddAllergyIntent}) {
   const [currentAllergy, setCurrentAllergy] = useState('');
 
