@@ -1,12 +1,12 @@
 import chai from 'chai';
 import { expect } from 'chai';
 import request from 'supertest';
-import RecipesDAO from '../src/backend/dao/recipesDAO.js';
-import RecipesController from '../src/backend/api/recipes.controller.js';
+import RecipesDAO from '../src/dao/recipesDAO.js';
 
-import app from '../src/backend/server.js';
+import app from '../src/server.js';
 
-// follow this format for adding a test for the api
+// Checks to see that "Hello World" is returned when a database request 
+// to the root directory is made
 describe('Hello World Route', () => {
   it('should return "Hello World" when GET /', (done) => {
     request(app) // Use supertest to make a request to Express app
@@ -21,6 +21,8 @@ describe('Hello World Route', () => {
   });
 });
 
+// Tests to see if a query for "No-Bake Nut Cookies" only returns a 
+// single result
 describe('RecipesController', () => {
   describe('apiGetRecipes', () => {
     it('should return a list of recipes with filters and total results', async () => {
