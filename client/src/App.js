@@ -5,6 +5,7 @@ import AllergyList from './AllergyList';
 
 function App() {
   const [results, setResults] = useState("");
+  const [allergies, setAllergies] = useState([]);
 
   // Parameter: query - recipe name to be fetched from database
   // Description: uses fetch on the given recipe name (user input)
@@ -24,7 +25,7 @@ function App() {
             return;
           }
           
-          if (recipe.Name.toLowerCase() == query.toLowerCase()) {
+          if (recipe.Name.toLowerCase() === query.toLowerCase()) {
           ten_results.push(recipeToString(recipe));
           } else {
             hold_array.push(recipeToString(recipe))
@@ -35,6 +36,12 @@ function App() {
 
         setResults(result.join("\n\n"));
       })
+  }
+
+  // Parameter: allergy - allergy to be added to allergy list
+  // Description: updates state.allergies
+  const addAllergy = allergy => {
+    setAllergies([...allergies, allergy]);
   }
 
   // Parameter: recipe - object containing recipe data
@@ -71,8 +78,8 @@ function App() {
           </p>
         </section>
         <section>
-          <AllergyList/>
-          <SearchBar placeholder="🔍 Recipe" emitSearchIntent={query => fetchRecipe(query)} />
+          <AllergyList emitAddAllergyIntent ={allergy => addAllergy(allergy)}/>
+          <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => fetchRecipe(query)} />
           <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
         </section>
       </main>
