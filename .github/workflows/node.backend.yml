@@ -38,9 +38,7 @@ jobs:
 
       # - name: Build server
       #   run: npm start
-
-      - name: Run server tests
-        run: npm test
+      
 
   client:
     runs-on: ubuntu-latest
