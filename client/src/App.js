@@ -34,8 +34,12 @@ function App() {
         });
         let result = ten_results.concat(hold_array);
         
-
-        setResults(result.join("\n\n"));
+        // check for any results
+        if (result.length === 0) {
+          setResults("No recipes in our database match your search");
+        } else {
+          setResults(result.join("\n\n"));
+        }
       })
   }
 
@@ -58,11 +62,25 @@ function App() {
     // Evaluate occurrence % for each ingredient; store as strings
     const ingredientPercentages = []
 
+    // allergy found flag
+    let allergyFound = false;
+
     for (let i = 0; i < ingredientNames.length; i++) {
+      allergies.forEach((allergy) => {
+        if (allergy.toLowerCase() === ingredientNames[i].toLowerCase()) {
+          allergyFound = true;
+        }
+      });
       ingredientPercentages.push(`${ingredientNames[i]} - ${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%`)
     }
 
-    return (`${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`)
+    // check for if one of the allergens was found
+    if (allergyFound) {
+      return (`Allergy Alert!\nOne of you allergens has been found in recipes for this item:\n
+             ${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`)
+    } else {
+      return (`${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`)
+    }
   }
   
   return (
