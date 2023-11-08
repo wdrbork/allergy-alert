@@ -27,8 +27,8 @@ function AllergyList({allergies, emitAddAllergyIntent}) {
       />
       <h2>List of Allergies</h2>
       <ul>
-        {allergies ? allergies.map((allergy, index) => (
-          <li key={index}>{allergy}</li>
+        {allergies ? allergies.map(allergy => (
+          <li key={allergy}>{allergy}</li>
         )) : ""}
       </ul>
     </div>

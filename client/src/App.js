@@ -79,7 +79,7 @@ function App() {
           </p>
         </section>
         <section>
-          <AllergyList emitAddAllergyIntent ={allergy => addAllergy(allergy)}/>
+          <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)}/>
           <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => fetchRecipe(query)} />
           <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
         </section>
