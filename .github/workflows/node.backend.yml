@@ -37,6 +37,11 @@ jobs:
         working-directory: ./server
         run: npm run build --if-present
 
-      # - name: Build server
-      #   run: npm start
+      - name: Build server
+        working-directory: ./server
+        run: npm start
+
+      - name: Run tests
+        working-directory: ./server
+        run: npm test
 
