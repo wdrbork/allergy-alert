@@ -34,8 +34,12 @@ function App() {
         });
         let result = ten_results.concat(hold_array);
         
-
-        setResults(result.join("\n\n"));
+        // check for any results
+        if (result.length === 0) {
+          setResults("No recipes in our database match your search");
+        } else {
+          setResults(result.join("\n\n"));
+        }
       })
   }
 
