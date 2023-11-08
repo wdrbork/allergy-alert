@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  server:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -37,24 +37,6 @@ jobs:
 
       # - name: Build server
       #   run: npm start
-
-
-  client:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3 #actions/checkout@v2
-
-      - name: Setup Node.js (Server)
-        uses: actions/setup-node@v3 #actions/setup-node@v2
-        with:
-        node-version: ${{ matrix.node-version }} # node-version: 14.x # Adjust to your desired Node.js version
 
       - name: Install server dependencies
         working-directory: ./client
@@ -70,4 +52,3 @@ jobs:
       - name: Run server tests
         working-directory: ./client
         run: npm test
-  
