@@ -29,6 +29,14 @@ export default class RecipesDAO {
         }
     }
 
+    /**
+     * Retrieves recipes from the database using the provided filters
+     * 
+     * @param filters contains parameters for the query that will be 
+     *                conducted on the 'recipes' collection
+     * @returns a JSON string containing all the recipes that match with the 
+     *          filters and the total number of results from the query
+     */
     static async getRecipes({ filters = null } = {}) {
         let query = {}
 
@@ -37,6 +45,7 @@ export default class RecipesDAO {
             query = { $text: { $search: filters["name"] } }
         }
 
+        // Retrieve the recipes using the query string above
         let cursor
         try {
             cursor = await recipes.find(query)
@@ -45,6 +54,7 @@ export default class RecipesDAO {
             return { recipesList: [], numRecipes: 0 }
         }
 
+        // Reformat the query results into returnable values
         try {
             const recipesList = await cursor.toArray()
             const numRecipes = await recipes.countDocuments(query)
