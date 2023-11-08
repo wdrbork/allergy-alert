@@ -1,4 +1,5 @@
-# Allergy Alert v
+# Allergy Alert
+v1.0.0
 
 ## Idea and Goals:
 Allergy Alert is a web application designed to help users identify the percentage chance that a particular allergen or set of allergens are in a particular food. This percentage should be based on as many recipes as possible, and we plan on using as many as 2 million recipes in order to produce accurate results for different queries.
