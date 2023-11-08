@@ -11,8 +11,6 @@ function App() {
   // Description: uses fetch on the given recipe name (user input)
   //              and then updates state.results
   const fetchRecipe = query => {
-    console.log("fetch rec"); // del
-
     // Fetch res as a json() and then retrieve the .message object
     fetch("http://localhost:5000/api/v1/recipes?name=\"" + query + "\"") // backend URI
       .then((res) => res.json())
@@ -45,7 +43,6 @@ function App() {
   // Description: updates state.allergies
   const addAllergy = allergy => {
     setAllergies([...allergies, allergy]);
-    console.log(allergies[0] + " " + allergy);
   }
 
   // Parameter: recipe - object containing recipe data
