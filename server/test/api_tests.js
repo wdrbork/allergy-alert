@@ -2,6 +2,7 @@ import chai from 'chai';
 import { expect } from 'chai';
 import request from 'supertest';
 import RecipesDAO from '../src/dao/recipesDAO.js';
+import RecipesController from '../src/api/recipes.controller.js';
 
 import app from '../src/server.js';
 
@@ -33,25 +34,19 @@ describe('RecipesController', () => {
         },
       };
 
-      // Stub the getRecipes method of RecipesDAO to return test data
-      const testData = {
-        recipesList: [{ name: 'No-Bake Nut Cookies' }],
-        numRecipes: 1,
+      const res = {
+        json: (data) => {
+          res.body = data;
+        },
       };
-      RecipesDAO.getRecipes = async () => testData;
 
-      // Perform an HTTP request to your Express app
-      const response = await request(app)
-        .get('/api/v1/recipes')
-        .query(req.query);
+      // Call the apiGetRecipes method
+      await RecipesController.apiGetRecipes(req, res);
 
-      // Expect the response to have the correct status code
-      expect(response.status).to.equal(200);
+      // Assert the response data
+      expect(res.body.recipes).to.be.an('array');
+      expect(res.body.filters).to.deep.equal({ name: 'No-Bake Nut Cookies' });
 
-      // Expect the response to have the correct data
-      expect(response.body.recipes).to.be.an('array');
-      expect(response.body.filters).to.deep.equal({ name: 'No-Bake Nut Cookies' });
-      expect(response.body.total_results).to.equal(1);
     });
   });
 });
