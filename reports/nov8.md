@@ -137,10 +137,15 @@ Where I was blocked:
 - NEW: implement a basic front end in time for the beta milestone
 #### Progress and Issues:
 What I did: I implemented the front end using ReactJS… though a bit superficially for now (at the very least, the `App`, `AllergyList`, and `SearchBar` components have gotten along a considerable amount); I read through all of the backend work that my team members had been working on to get fetch requests working with ExpressJS; I was able to parse our data and use the very basic search feature currently built into our backend to make query requests appear as a list on the front end; I cleaned up some of the preexisting HTML stub code that we had; I worked with the others that were in charge of the backend to clear up and help finalize the steps to list in our `README` that described how to get our beta release up and running; I managed to take a look through the CI system that my team has been using in GitHub Actions and gained an understanding of how it works
+
 What worked: I think just staying in touch with all of the other team members to stay up to date with the state of our app works best (including trying to keep an ear out for how everything works even if it’s an aspect of the app that I may not be working on; those bits of knowledge came in very useful as I was coding and hooking everything up)
+
 What I learned: I learned about how our CI system works and how to make any changes in it as necessary; I learned about how the newer state syntax in ReactJS works (`useState` instead of `state = {}`); I learned how to make fetch requests to the backend; I learned how separating the front and back ends of the app works on the front of actually running it (i.e. how we would have to type `npm start` for each of them separately)
+
 Where I had trouble: some of the initial commits that another team member had made for the frontend laid out the code in a way that was a bit different than what I had in mind but I was able to get on a call with him and we worked through it together to fully understand how we each envisioned the code to be laid out; in the end, the code was a lot clearer and well organized since we essentially did a bit of pair programming on that front. I also had some trouble setting the `fetch` request up but I was able to read through all of the backend files (thanks to good documentation from another team member) to understand everything and fix my errors. I also had general scheduling issues since we only realized that we should have a working frontend on Thursday and I had a lot of other classwork due on dates adjacent to the beta milestone.
+
 Where I am blocked: everything is fine for now
+
 #### Plans for next week:
 - Setting everything up with Render was a bit far-fetched for this week so I wasn’t able to do it but I think I will push this goal by another week so that I can work on perfecting the frontend of the time being
 - Talk through how we want to lay our results out when we retrieve it from the database
