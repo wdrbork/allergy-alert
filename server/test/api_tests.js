@@ -30,7 +30,7 @@ describe('RecipesController', () => {
       // Create a mock request object with query parameters
       const req = {
         query: {
-          name: 'No-Bake Nut Cookies',
+          'name': 'No-Bake Nut Cookies',
         },
       };
 
@@ -50,3 +50,19 @@ describe('RecipesController', () => {
     });
   });
 });
+
+// Tests to see if calling an invalid URL results in a 404 status code
+describe('InvalidRoute', () => {
+  it("should return a 404 status code if an invalid URL is called", (done) => {
+    request(app)
+      .get('/api/v1/na')
+      .expect(404)
+      .end((err, res) => {
+        if (err) return done(err);
+
+        done();
+      })
+  })
+})
+
+
