@@ -24,10 +24,10 @@ jobs:
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
-        working-directory: ./server
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: ./server
 
       - name: Install server dependencies
         working-directory: ./server
