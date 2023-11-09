@@ -47,19 +47,44 @@ The next deadline to work toward will be: Implement allergy editing/possibly cac
 - Fully implement the REST API in preparation for the beta release
 
 #### Progress and Issues:
-What I did: 
+What I did: I cleaned up our repository quite a bit. In particular, I helped
+rearrange files and directories so that somebody using our program could better
+navigate to different aspects of our code. I also updated the README so that it
+provides more up-to-date information regarding installation instructions as 
+well as how to run the website, and I added another backend test case 
+that ensures 404 errors are correctly returned. I also attempted to fix our 
+ongoing problem with the CI/CD pipeline, but I had no success.
 
-What worked: 
+What worked: Constant communication with the team regarding changes to our 
+overall structure was good for avoiding problems regarding imports. For 
+example, I removed the .env file from the GitHub repository for safety reasons,
+but after a quick chat with the group, we decided that it would be fine to 
+leave it in for now so that the course staff could run it themselves without
+having to create their own .env file with their own cluster of data.
 
-What I learned: 
+What I learned: I learned a little more about creating test cases using 'chai'.
+I'm still not fully familiar with it, but I plan on reading through its 
+documentation so that I can add more tests to our backend in the future, 
+because at the moment, we are somewhat lacking in that department.
 
-Where I had trouble: 
+Where I had trouble: I had lots of trouble with fixing our CI/CD pipeline. 
+Since I had COVID during the lectures on it, I am not entirely familiar with 
+how to implement pipelines through GitHub Actions (Gail's demo did not end up  
+in the Panopto recordings). My role from here on out will mostly be related 
+to testing, so I plan on doing some research on CI/CD pipelines so that I can 
+not only fix our current pipeline, but also add some more.
 
-Where I was blocked: 
+Where I was blocked: I had a group project in another class that was due at 
+the same time as our beta, so I ended up having to split time between that and 
+my role for this project. This resulted in me not having as much time to do 
+research on pipelines and backend testing with 'chai', but I schedule should 
+open up after this week.
 
 #### Plans for next week: 
--
--
+- Do research on CI/CD pipelines as well as 'chai'
+- Fix our CI/CD pipeline so that it can actually run our existing tests
+- Add more backend tests that ensure correct behavior when searching for 
+recipes
 
 ### Phillip Phan
 #### Last Week's Goals:
