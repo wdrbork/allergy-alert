@@ -49,6 +49,12 @@ function App() {
     setAllergies([...allergies, allergy]);
   }
 
+  // Parameter: allergy - allergy to be deleted from allergy list
+  // Description: updates state.allergies
+  const deleteAllergy = allergyToDelete => {
+    setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete));
+  }
+
   // Parameter: recipe - object containing recipe data
   // Description: formats recipe into a readable string output
   const recipeToString = recipe => {
@@ -97,7 +103,7 @@ function App() {
           </p>
         </section>
         <section>
-          <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)}/>
+          <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
           <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => fetchRecipe(query)} />
           <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
         </section>
