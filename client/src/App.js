@@ -88,9 +88,10 @@ function App() {
       return (`${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`)
     }
   }
+
   
   return (
-    <div className="App">
+    <div className="App" data-testid="app-instance">
       <header className="App-header">
         <h2 className="logo-text">Allergy Alert</h2>
       </header>
