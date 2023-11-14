@@ -1,4 +1,5 @@
-# Allergy Alert v
+# Allergy Alert
+v1.0.0
 
 ## Idea and Goals:
 Allergy Alert is a web application designed to help users identify the percentage chance that a particular allergen or set of allergens are in a particular food. This percentage should be based on as many recipes as possible, and we plan on using as many as 2 million recipes in order to produce accurate results for different queries.
@@ -34,4 +35,4 @@ README.md: Summary of project goals as well as installation/testing instructions
     - To do this on Windows, run Powershell as an administrator, and call the command `Get-ExecutionPolicy`. It should be "Restricted." Then, call `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`. This will allow you to run nodemon.
     - If you ever want to go back on this change, simply call the command `Set-ExecutionPolicy Restricted -Scope CurrentUser`
     - For more information on execution policies, see [the Microsoft docs](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
-7. To run tests for the backend, navigate to the "server" directory and run `npm test`   
+7. To run tests for the backend, navigate to the "server" directory and run `npm test`. To run tests for the frontend, navigate to the "client" directory and run `npm test`. 

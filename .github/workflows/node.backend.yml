@@ -1,0 +1,67 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3 #actions/checkout@v2
+
+      # for server
+
+      - name: Use Node.js ${{ matrix.node-version }} for server
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ./server
+
+      - name: Install server dependencies
+        working-directory: ./server
+        run: npm ci
+
+      - name: Build server
+        working-directory: ./server
+        run: npm run build --if-present
+
+      - name: Run server tests
+        working-directory: ./server
+        run: npm test
+
+      # for client
+
+      - name: Use Node.js ${{ matrix.node-version }} for client
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ./client
+
+      - name: Install client dependencies
+        working-directory: ./client
+        run: npm ci
+
+      - name: Build client
+        working-directory: ./client
+        run: npm run build --if-present
+
+      - name: Run client tests
+        working-directory: ./client
+        run: npm test
+
+

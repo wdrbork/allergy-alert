@@ -36,9 +36,13 @@ function App() {
         
         // check for any results
         if (result.length === 0) {
+          setResults("No recipes in our database match your search");
+        } else {        // check for any results
+        if (result.length === 0) {
           setResults([<div key={0}>No recipes in our database match your search</div>]);
         } else {
-          setResults(result);
+            setResults(result);
+        }
         }
       })
   }
@@ -47,6 +51,12 @@ function App() {
   // Description: updates state.allergies
   const addAllergy = allergy => {
     setAllergies([...allergies, allergy]);
+  }
+
+  // Parameter: allergy - allergy to be deleted from allergy list
+  // Description: updates state.allergies
+  const deleteAllergy = allergyToDelete => {
+    setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete));
   }
 
   // Parameter: allergy - allergy to be deleted from allergy list
@@ -71,7 +81,15 @@ function App() {
     // allergy found flag
     let allergyFound = false;
 
+    // allergy found flag
+    let allergyFound = false;
+
     for (let i = 0; i < ingredientNames.length; i++) {
+      allergies.forEach((allergy) => {
+        if (allergy.toLowerCase() === ingredientNames[i].toLowerCase()) {
+          allergyFound = true;
+        }
+      });
       allergies.forEach((allergy) => {
         if (allergy.toLowerCase() === ingredientNames[i].toLowerCase()) {
           allergyFound = true;

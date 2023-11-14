@@ -27,6 +27,7 @@
     "supertest": "^6.3.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "chai": "^4.3.10",
     "mocha": "^10.2.0"
   },
