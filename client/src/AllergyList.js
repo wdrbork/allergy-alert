@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import './App.css';
 
-//
-function AllergyList({allergies, emitAddAllergyIntent}) {
+// Allows users to add, delete and view allergies
+function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent}) {
   const [currentAllergy, setCurrentAllergy] = useState('');
 
   const handleInputChange = (e) => {
@@ -15,6 +16,12 @@ function AllergyList({allergies, emitAddAllergyIntent}) {
     }
   };
 
+  // called when user deletes allergy
+  // param - allergy to delete
+  const deleteAllergy = (allergy) => {
+    emitDeleteAllergyIntent(allergy);
+  }
+
   return (
     <div>
       <input
@@ -27,12 +34,14 @@ function AllergyList({allergies, emitAddAllergyIntent}) {
       />
       <h2>List of Allergies</h2>
       <ul>
-        {allergies ? allergies.map((allergy, index) => (
-          <li key={index}>{allergy}</li>
+        {allergies ? allergies.map(allergy => (
+          <div class="box"><p key={allergy}>{allergy + " "}<a href onClick={(env) => deleteAllergy(allergy)}>🞭</a></p></div>
         )) : ""}
       </ul>
     </div>
   );
+
+  
 }
 
 export default AllergyList;

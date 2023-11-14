@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import AllergyList from './AllergyList';
 
 function App() {
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState();
   const [allergies, setAllergies] = useState([]);
 
   // Parameter: query - recipe name to be fetched from database
@@ -27,15 +27,19 @@ function App() {
           
           // makes it so the exact match is shown first
           if (recipe.Name.toLowerCase() === query.toLowerCase()) {
-          ten_results.push(recipeToString(recipe));
+            ten_results.push(<div key={index}>{recipeToString(recipe)}</div>);
           } else {
-            hold_array.push(recipeToString(recipe))
+            hold_array.push(<div key={index}>{recipeToString(recipe)}</div>)
           }
         });
         let result = ten_results.concat(hold_array);
         
-
-        setResults(result.join("\n\n"));
+        // check for any results
+        if (result.length === 0) {
+          setResults([<div key={0}>No recipes in our database match your search</div>]);
+        } else {
+          setResults(result);
+        }
       })
   }
 
@@ -43,6 +47,12 @@ function App() {
   // Description: updates state.allergies
   const addAllergy = allergy => {
     setAllergies([...allergies, allergy]);
+  }
+
+  // Parameter: allergy - allergy to be deleted from allergy list
+  // Description: updates state.allergies
+  const deleteAllergy = allergyToDelete => {
+    setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete));
   }
 
   // Parameter: recipe - object containing recipe data
@@ -58,15 +68,36 @@ function App() {
     // Evaluate occurrence % for each ingredient; store as strings
     const ingredientPercentages = []
 
+    // allergy found flag
+    let allergyFound = false;
+
     for (let i = 0; i < ingredientNames.length; i++) {
+      allergies.forEach((allergy) => {
+        if (allergy.toLowerCase() === ingredientNames[i].toLowerCase()) {
+          allergyFound = true;
+        }
+      });
       ingredientPercentages.push(`${ingredientNames[i]} - ${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%`)
     }
 
-    return (`${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`)
+    const recipeContent = `${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`;
+    
+    // check for if one of the allergens was found
+    return (
+      <div className="recipe-box">
+        <label className="recipe-label">
+          {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : ""}
+        </label>
+        <label className="recipe-content">
+          {recipeContent}
+        </label>
+      </div>
+    );
   }
+
   
   return (
-    <div className="App">
+    <div className="App" data-testid="app-instance">
       <header className="App-header">
         <h2 className="logo-text">Allergy Alert</h2>
       </header>
@@ -79,7 +110,7 @@ function App() {
           </p>
         </section>
         <section>
-          <AllergyList emitAddAllergyIntent ={allergy => addAllergy(allergy)}/>
+          <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
           <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => fetchRecipe(query)} />
           <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
         </section>
