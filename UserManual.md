@@ -16,7 +16,13 @@ will appear, along with the ingredients in the recipe and the percent of the
 recipes for that item in our database that use that ingredient.
 
 ## How to Report a Bug
-Submit a bug using the "Issues" section on our project's Github.
+Submit a bug using the "Issues" section on our project's Github. 
+Guidelines for bug reports:
+1. Use the GitHub issue search — check if the issue has already been reported.
+2. Explain the steps you took to get to the place where the bug occured when reporting.
+Refer to this document for additional information on bug reporting practices: https://github.com/brycelelbach/cpp_bug_reporting_guidelines
+
+
 
 ## Known Bugs
 Currently there are a few issues with our website:
