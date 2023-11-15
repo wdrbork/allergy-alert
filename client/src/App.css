@@ -1,3 +1,24 @@
+/* Style for recipe box */
+.recipe-box {
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-right: 60%;
+  background-color: #fff;
+}
+
+/* Style for recipe label */
+.recipe-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Style for recipe content */
+.recipe-content {
+  margin-top: 10px;
+}
+
 /* Add this CSS to your stylesheet */
 .logo-text {
   font-size: 100px; /* Adjust the font size as needed */
@@ -106,6 +127,18 @@ table {
 
 th, td {
   text-align: center;
+}
+
+.box {
+  display: inline-block;
+  height: 23px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 3px;
+  border-radius: 15px;
+  background-color: #fff;
+  margin: 5px;
+  width: auto;
 }
 
 .box {
