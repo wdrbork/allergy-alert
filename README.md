@@ -19,6 +19,8 @@ server: Contains backend code related to the server and the database
 .gitignore: Includes files that should not be included in git commands  
 ORG.md: Includes the people involved in this project and their roles as well as project artifacts  
 README.md: Summary of project goals as well as installation/testing instructions
+DeveloperManual.md: Guidelines for developers who want to contribute to project
+UserManual.md: Instructions for users to install and use product
 
 ## Installation and Testing Instructions
 1. Ensure that you have the latest version of Git installed
