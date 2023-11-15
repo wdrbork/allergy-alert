@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
-import './App.css';
 
-// Allows users to add, delete and view allergies
+//
 function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent}) {
   const [currentAllergy, setCurrentAllergy] = useState('');
 
