@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import SearchBar from './SearchBar';
 import AllergyList from './AllergyList';
+import Highlighter from "react-highlight-words";
 
 function App() {
   const [results, setResults] = useState("");
@@ -106,7 +107,13 @@ function App() {
         <section>
           <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
           <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => fetchRecipe(query)} />
-          <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
+          <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>          
+            <Highlighter
+            highlightClassName="YourHighlightClass" // Define your custom highlight class
+            searchWords={allergies}
+            autoEscape={true}
+            textToHighlight= {results} // Replace this with your text
+          /></div>
         </section>
       </main>
     </div>
