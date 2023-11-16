@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import AllergyList from './AllergyList';
 
 function App() {
-  const [results, setResults] = useState("");
+  const [results, setResults] = useState();
   const [allergies, setAllergies] = useState([]);
 
   // Parameter: query - recipe name to be fetched from database
@@ -27,9 +27,9 @@ function App() {
           
           // makes it so the exact match is shown first
           if (recipe.Name.toLowerCase() === query.toLowerCase()) {
-          ten_results.push(recipeToString(recipe));
+            ten_results.push(<div key={index}>{recipeToString(recipe)}</div>);
           } else {
-            hold_array.push(recipeToString(recipe))
+            hold_array.push(<div key={index}>{recipeToString(recipe)}</div>)
           }
         });
         let result = ten_results.concat(hold_array);
@@ -37,8 +37,12 @@ function App() {
         // check for any results
         if (result.length === 0) {
           setResults("No recipes in our database match your search");
+        } else {        // check for any results
+        if (result.length === 0) {
+          setResults([<div key={0}>No recipes in our database match your search</div>]);
         } else {
-          setResults(result.join("\n\n"));
+            setResults(result);
+        }
         }
       })
   }
@@ -77,20 +81,32 @@ function App() {
           allergyFound = true;
         }
       });
+      allergies.forEach((allergy) => {
+        if (allergy.toLowerCase() === ingredientNames[i].toLowerCase()) {
+          allergyFound = true;
+        }
+      });
       ingredientPercentages.push(`${ingredientNames[i]} - ${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%`)
     }
 
+    const recipeContent = `${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`;
+    
     // check for if one of the allergens was found
-    if (allergyFound) {
-      return (`Allergy Alert!\nOne of you allergens has been found in recipes for this item:\n
-             ${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`)
-    } else {
-      return (`${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`)
-    }
+    return (
+      <div className="recipe-box">
+        <label className="recipe-label">
+          {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : ""}
+        </label>
+        <label className="recipe-content">
+          {recipeContent}
+        </label>
+      </div>
+    );
   }
+
   
   return (
-    <div className="App">
+    <div className="App" data-testid="app-instance">
       <header className="App-header">
         <h2 className="logo-text">Allergy Alert</h2>
       </header>

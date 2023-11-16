@@ -137,9 +137,9 @@ learn the testing frameworks, as well as understanding how to interact with the 
 I plan to do some polishing work and also make more designs and maybe font reworks for the logo. I was told that’s probably the best thing I can do as the UI guy since the other’s are focused on implementing the basics together to support a command line beta.
 
 #### Progress and Issues:
-What I did: 
+What I did: I changed the logo of Allergy Alert to be large font with a similar color. Also I considered adding a warning logo to the left and right of the text.
 
-What worked:
+What worked: It was easy to change the logo and rework the structure of the website, because CSS structure is relatively simple.
 
 What I learned: 
 
