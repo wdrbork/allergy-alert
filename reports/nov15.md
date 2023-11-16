@@ -32,20 +32,44 @@ The next deadline to work toward will be: Implement allergy editing/possibly cac
 ## Individual Contributions
 ### Riley Bork
 #### Last Week's Goals:
+- Do research on CI/CD pipelines as well as 'chai'
+- Fix our CI/CD pipeline so that it can actually run our existing tests
+- Add more backend tests that ensure correct behavior when searching for 
+recipes
 
 #### Progress and Issues:
-What I did:
+What I did: I offered some feedback regarding the UI for our website, 
+particularly when it came to the layout. I also attempted to fix our backend
+tests because even though they pass, they have a couple errors that are 
+preventing them from actually running the test queries. I also looked into 
+adding some more CI/CD workflows, but I couldn't think of anything that needed
+to be added.
 
-What worked:
+What worked: Communication with my group was good, especially when it came to 
+giving feedback on the frontend. Watching some more YouTube videos about our 
+testing frameworks was also helpful, although I might need to do some more 
+research still.
 
-What I learned:
+What I learned: I learned more about implementing test cases using Mocha as 
+well as creating CI/CD workflows, although I wasn't able to actually use this 
+newfound knowledge this past week.
 
-Where I had trouble:
+Where I had trouble: I had trouble fixing the issue with our backend test 
+cases. I know that the problem is because the 'recipes' object in the 
+RecipesDAO class is undefined, and that is because the test cases run without
+calling the 'injectDB' function, but I still need to figure out how to get it 
+to run before running the tests.
 
-Where I was blocked:
+Where I was blocked: I was pretty busy again this past week with homework from
+my other classes (this week it was ASTR 101 of all classes), but I'm going back
+to my hometown of Spokane this next week, so I should have a lot more spare 
+time to focus on this project witihout worrying as much about lectures from
+other classes.
 
 #### Plans for next week: 
-- 
+- Do more research on our Mocha test framework
+- Add more backend tests that ensure correct behavior when searching for 
+recipes
 
 ### Phillip Phan
 #### Last Week's Goals:
