@@ -82,6 +82,7 @@ Where I was blocked: I got blocked on looking into cookie caching becasue of tim
 
 #### Plans for next week: 
 - Try to implement some sort of caching of previous allergens (perhaps by looking at the cookie)
+- Add some simple logic to account for some plurals when comparing allergies and ingredients
 
 ### Jack Rosenbloom
 #### Last Week's Goals:
