@@ -141,15 +141,15 @@ What I did: I changed the logo of Allergy Alert to be large font with a similar 
 
 What worked: It was easy to change the logo and rework the structure of the website, because CSS structure is relatively simple.
 
-What I learned: 
+What I learned: I didn't have to learn much, more just practice what I've already learned.
 
-Where I had trouble: 
+Where I had trouble: Didn't have trouble.
 
-Where I was blocked: 
+Where I was blocked: Wasn't blocked.
 
 #### Plans for next week:
--
--
+- Create more designs and layouts for website.
+- Provide insights into other areas of the website for group discussion.
 
 
 ### Aakanksh Yadav
