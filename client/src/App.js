@@ -50,13 +50,16 @@ function App() {
   // Parameter: allergy - allergy to be added to allergy list
   // Description: updates state.allergies
   const addAllergy = allergy => {
-    setAllergies([...allergies, allergy]);
+    const lowerCaseAllergy = allergy.toLowerCase();
+    if (!allergies.includes(lowerCaseAllergy)) {
+      setAllergies([...allergies, lowerCaseAllergy]);
+    }
   }
 
   // Parameter: allergy - allergy to be deleted from allergy list
   // Description: updates state.allergies
   const deleteAllergy = allergyToDelete => {
-    setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete));
+    setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete.toLowerCase()));
   }
 
   // Parameter: recipe - object containing recipe data
@@ -77,13 +80,14 @@ function App() {
 
     for (let i = 0; i < ingredientNames.length; i++) {
       allergies.forEach((allergy) => {
-        if (allergy.toLowerCase() === ingredientNames[i].toLowerCase()) {
+        if (allergy === ingredientNames[i].toLowerCase()) {
           allergyFound = true;
-        }
-      });
-      allergies.forEach((allergy) => {
-        if (allergy.toLowerCase() === ingredientNames[i].toLowerCase()) {
+        } else if (allergy + "s" === ingredientNames[i].toLowerCase()) {
           allergyFound = true;
+        } else if (allergy.slice(-1) === "s") {
+          if (allergy.slice(0, -1) === ingredientNames[i].toLowerCase()) {
+            allergyFound = true;
+          }
         }
       });
       ingredientPercentages.push(`${ingredientNames[i]} - ${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%`)
