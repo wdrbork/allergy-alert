@@ -40,7 +40,8 @@ this time.
 - Add tests
 
 
-The next deadline to work toward will be: Implement allergy editing/possibly caching for each user
+The next deadline to work toward will be: Finalizing our product by the final 
+release deadline of December 5
 
 ## Individual Contributions
 ### Riley Bork
@@ -50,15 +51,24 @@ The next deadline to work toward will be: Implement allergy editing/possibly cac
 recipes
 
 #### Progress and Issues:
-What I did: 
+What I did: I created this report and filled out the summary above for our 
+group. I also did a peer review of EasyPrint, but other than that, I did not 
+make much progress on my goals from this past week.
 
-What worked: 
+What worked: Reading issues created from peers helped me understand ways in 
+which we could improve our product, especially when it came to our documentation.
 
-What I learned: 
+What I learned: Unfortunately, I did not learn much about creating test cases 
+using Mocha, even though it was my goal for this past week. I'm hoping to get 
+back on that once I come back to Seattle after Thanksgiving break.
 
-Where I had trouble: 
+Where I had trouble: I did not have much trouble with anything this past week.
 
-Where I was blocked: 
+Where I was blocked: I left for Spokane (my hometown) this past Saturday, and 
+I have spent a lot of time seeing friends and family since I came back home. 
+This has resulted in me spending a lot less time on this project. I come back 
+to Seattle Friday night, so I'm hoping to use the weekend to focus on getting 
+some more test cases made and fixing issues related to documentation. 
 
 #### Plans for next week: 
 - Do more research on our Mocha test framework
