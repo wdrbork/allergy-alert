@@ -98,17 +98,24 @@ Where I was blocked:
 - Add some simple logic to account for some plurals when comparing allergies and ingredients
 
 #### Progress and Issues:
-What I did: 
+What I did: Make allergy list a set. Implemented simple logic to adjust plural allergy/ingredient 
+            comparison. Created route to get cookie info from database and make example cookie for 
+            while I'm testing the routes.
 
-What worked: 
+What worked: Researching about the how to add cookies. Looking at the code for our previous route
+             and following that pattern.
 
-What I learned: 
+What I learned: Learned that I had to add index to use find functionality for mongodb. Learned 
+                more about how to work with routes. Learned about creating cookies.
 
-Where I had trouble: 
+Where I had trouble: Adding the routes to interface with the accounts collection in the database.
 
-Where I was blocked: 
+Where I was blocked: Currently working on the routes that add/remove allergens from the accounts in the 
+                     database. Harder for me than the get route I wrote.
 
 #### Plans for next week: 
+- Finish the cookie implemnetation
+- add tests for frontend
 
 
 ### Jack Rosenbloom
