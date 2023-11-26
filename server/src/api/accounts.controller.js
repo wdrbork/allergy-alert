@@ -59,4 +59,26 @@ export default class AccountsController {
       }
     }
 
+    static async apiRemoveAllergen(req, res) {
+      try {
+        const { value, allergen } = req.query;
+  
+        if (!value || !allergen) {
+          res.status(400).json({ error: "Missing required parameters" });
+          return;
+        }
+  
+        const result = await AccountsDAO.removeAllergen(value, allergen);
+  
+        if (result.success) {
+          res.json({ success: true });
+        } else {
+          res.status(404).json({ error: result.error });
+        }
+      } catch (error) {
+        console.error(`Error in apiRemoveAllergen: ${error}`);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    }
+
 }

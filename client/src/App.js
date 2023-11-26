@@ -76,7 +76,7 @@ function App() {
         }
       })
   }
-  
+
   // Description: uses fetch on the on value of user cookie
   const fetchAllergens = () => {
     // Fetch res as a json() and then retrieve the .message object
@@ -148,6 +148,27 @@ function App() {
     });
   }
 
+  // Parameter: allergen - allergy to be removed
+  // Description: removes allergy from users allergies in database
+  const fetchRemoveAllergy = allergen => {
+    // Fetch res as a json() and then retrieve the .message object
+    fetch(`http://localhost:5000/api/v1/accounts/removeAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
+      method: 'POST'
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        // data is a JSON object with the result of the operation
+        if (data.success) {
+            console.log("Allergen removed successfully");
+        } else {
+            console.error("Error removing allergen:", data.error);
+        }
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+    });
+  }
+
 
   // Parameter: allergy - allergy to be added to allergy list
   // Description: updates state.allergies
@@ -163,6 +184,7 @@ function App() {
   // Description: updates state.allergies
   const deleteAllergy = allergyToDelete => {
     setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete.toLowerCase()));
+    fetchRemoveAllergy(allergyToDelete);
   }
 
   // Description looks for allergy alert cookie

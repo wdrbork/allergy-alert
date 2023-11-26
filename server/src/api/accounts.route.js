@@ -9,6 +9,8 @@ router.route("/").get(AccountsCtrl.apiGetAccounts)
 router.route("/addUser").post(AccountsCtrl.apiAddUser)
 // To add an allergen use "localhost:5000/api/v1/accounts/addAllergen?value=<cookie_value>&allergen=<allergen>"
 router.route("/addAllergen").post(AccountsCtrl.apiAddAllergen)
+// To remove an allergen use "localhost:5000/api/v1/accounts/removeAllergen?value=<cookie_value>&allergen=<allergen>"
+router.route("/removeAllergen").post(AccountsCtrl.apiRemoveAllergen)
 
  
 export default router

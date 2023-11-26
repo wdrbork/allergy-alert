@@ -122,4 +122,29 @@ export default class AccountsDAO {
         }
       }
 
+     /**
+     * Remove allergen to account
+     * 
+     * @param value the users cookie value
+     * @param allergen the allergen to remove
+     * @returns boolean of if allergen was successfully removed
+     */
+    static async removeAllergen(value, allergen) {
+        try {
+          const result = await accounts.updateOne(
+            { "_id": new ObjectId(value) },
+            { $pull: { "allergies": allergen } }
+          );
+    
+          if (result.modifiedCount === 0) {
+            throw new Error("No account found with the given ID");
+          }
+    
+          return { success: true };
+        } catch (error) {
+          console.error(`Error removing allergen: ${error}`);
+          return { success: false, error: error.message };
+        }
+      }
+
 }
