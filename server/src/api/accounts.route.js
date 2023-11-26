@@ -9,8 +9,6 @@ router.route("/").get(AccountsCtrl.apiGetAccounts)
 router.route("/addUser").post(AccountsCtrl.apiAddUser)
 // To add an allergen use "localhost:5000/api/v1/accounts/addAllergen?value=<cookie_value>&allergen=<allergen>"
 router.route("/addAllergen").post(AccountsCtrl.apiAddAllergen)
-// To get max value use "localhost:5000/api/v1/accounts/getMaxValue"
-router.route("/getMaxValue").get(AccountsCtrl.apiGetMaxValue)
 
  
 export default router

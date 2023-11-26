@@ -1,4 +1,4 @@
-import mongodb from "mongodb"
+import { ObjectId } from 'mongodb'
 let accounts
 
 export default class AccountsDAO {
@@ -37,60 +37,65 @@ export default class AccountsDAO {
      *          filters and the total number of results from the query
      */
     static async getAccounts({ filters = null } = {}) {
-        let query = {}
-
-        // Look for accounts that contain the given name, if one is given
+        let query = {};
+      
+        // Look for accounts that match the given value in the _id field
         if (filters && "value" in filters) {
-            query = { $text: { $search: filters["value"] } }
+          try {
+            const objectId = new ObjectId(filters.value);
+            query = { _id: objectId };
+          } catch (error) {
+            console.error(`Invalid ObjectId: ${error}`);
+            return { accountsList: [], numAccounts: 0 };
+          }
         }
-
+      
         // Retrieve the accounts using the query string above
-        let cursor
+        let cursor;
         try {
-            cursor = await accounts.find(query)
+          cursor = await accounts.find(query);
         } catch (e) {
-            console.error(`Unable to issue find command, ${e}`)
-            return { recipesList: [], numRecipes: 0 }
+          console.error(`Unable to issue find command, ${e}`);
+          return { accountsList: [], numAccounts: 0 };
         }
-
+      
         // Reformat the query results into returnable values
         try {
-            const accountsList = await cursor.toArray()
-
-            return { accountsList }
+          const accountsList = await cursor.toArray();
+      
+          return { accountsList, numAccounts: accountsList.length };
         } catch (e) {
-            console.error(
-                `Unable to convert cursor to array or problem counting documents, ${e}`
-            )
-            return { recipesList: [], numRecipes: 0}
+          console.error(
+            `Unable to convert cursor to array or problem counting documents, ${e}`
+          );
+          return { accountsList: [], numAccounts: 0 };
         }
-    }
+      }
 
     /**
      * Create a new user account
      * 
-     * @param value the user's cookie value
      * @returns the newly created user object
      */
-    static async addUser(value) {
+    static async addUser() {
         try {
-            const userData = {
-                value: value,
-                allergies: []
-            };
-
-            const result = await accounts.insertOne(userData);
-            
-            if (result.insertedCount !== 1) {
-                throw new Error("Failed to create a new user");
-            }
-
-            return result.ops[0]; // Return the newly created user object
+          const userData = {
+            allergies: []
+          };
+      
+          const result = await accounts.insertOne(userData);
+      
+          if (!result.acknowledged) {
+            console.error("Failed to create a new user.");
+            throw new Error("Failed to create a new user");
+          }
+      
+          return result; // Return the newly created user object with _id
         } catch (error) {
-            console.error(`Error creating user: ${error}`);
-            throw error;
+          console.error(`Error creating user: ${error}`);
+          throw error;
         }
-    }
+      }
 
     /**
      * Add allergen to account
@@ -102,7 +107,7 @@ export default class AccountsDAO {
     static async addAllergen(value, allergen) {
         try {
           const result = await accounts.updateOne(
-            { "value": value },
+            { "_id": new ObjectId(value) },
             { $push: { "allergies": allergen } }
           );
     
@@ -117,18 +122,4 @@ export default class AccountsDAO {
         }
       }
 
-      static async getMaxValue() {
-        try {
-            const result = await accounts.find().sort({ "value": -1 }).limit(1).toArray();
-    
-            if (result.length === 0) {
-                throw new Error("No accounts found in the database");
-            }
-    
-            return result[0].value; // Return the max value
-        } catch (error) {
-            console.error(`Error in getMaxValue: ${error}`);
-            throw error;
-        }
-    }
 }

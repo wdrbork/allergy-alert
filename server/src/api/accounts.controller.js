@@ -18,19 +18,22 @@ export default class AccountsController {
 
     static async apiAddUser(req, res) {
       try {
-          const { value } = req.query;
-
-          if (!value) {
-              res.status(400).json({ error: "Missing required parameters" });
-              return;
-          }
-
-          const newUser = await AccountsDAO.addUser(value);
-
-          res.json(newUser);
+        const newUser = await AccountsDAO.addUser();
+    
+        // Ensure that newUser is an object and has the _id field
+        if (newUser && newUser.insertedId) {
+          // Extract the _id field
+          const userId = newUser.insertedId;
+    
+          // Add the _id field to the response
+          res.json({ userId });
+        } else {
+          // Handle the case where _id is not present in newUser
+          res.status(500).json({ error: "Internal Server Error: Missing _id field" });
+        }
       } catch (error) {
-          console.error(`Error in apiCreateUser: ${error}`);
-          res.status(500).json({ error: "Internal Server Error" });
+        console.error(`Error in apiCreateUser: ${error}`);
+        res.status(500).json({ error: "Internal Server Error" });
       }
     }
 
@@ -56,14 +59,4 @@ export default class AccountsController {
       }
     }
 
-    static async apiGetMaxValue(req, res) {
-      try {
-        const maxValue = await AccountsDAO.getMaxValue();
-
-        res.json({ maxValue });
-      } catch (error) {
-          console.error(`Error in apiGetMaxValue: ${error}`);
-          res.status(500).json({ error: "Internal Server Error" });
-      }
-    }
 }
