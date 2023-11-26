@@ -3,9 +3,31 @@ import './App.css';
 import SearchBar from './SearchBar';
 import AllergyList from './AllergyList';
 
+let cookie_value;
+
 function App() {
   const [results, setResults] = useState();
   const [allergies, setAllergies] = useState([]);
+
+  // runs when app component mounted
+  useEffect(() => {
+    cookie_value = getCookie();
+    // search for cookie
+    if (cookie_value !== null) {
+      // if found then set allergies
+      fetchCookie();
+    } else {
+      // if not then make cookie
+      fetchMaxValue()
+      .then(() => {
+        fetchAddUser(cookie_value);
+        document.cookie = 'alleryALERTuser=' + cookie_value;
+      })
+      .catch((error) => {
+        console.error("Error getting max value:", error);
+      });
+    }
+  }, []);
 
   // Parameter: query - recipe name to be fetched from database
   // Description: uses fetch on the given recipe name (user input)
@@ -47,12 +69,104 @@ function App() {
       })
   }
 
+  // Description: uses fetch on the on value of user cookie
+  const fetchCookie = () => {
+    // Fetch res as a json() and then retrieve the .message object
+    fetch("http://localhost:5000/api/v1/accounts?value=\"" + cookie_value + "\"") // backend URI
+      .then((res) => res.json())
+      .then((data) => {
+        // data is a JSON object with all account info including allergies
+        if (data["accounts"].length > 0) {
+          // Access the allergies array of the first account
+          const allergiesArray = data["accounts"][0].allergies;
+
+            setAllergies(allergiesArray);
+
+
+        } else {
+          console.error("No accounts found");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  // Parameter: value - user value to be added
+  // Description: adds user to the database
+  const fetchAddUser = value => {
+    // Fetch res as a json() and then retrieve the .message object
+    fetch(`http://localhost:5000/api/v1/accounts/addUser?value=${encodeURIComponent(value)}`, {
+      method: 'POST'
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        // data is a JSON object with the result of the operation
+        if (data._id) {
+            console.log("User added successfully");
+            // You may want to update your UI or perform additional actions here
+        } else {
+            console.error("Error adding user:", data.error);
+        }
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+    });
+  }
+
+  // Parameter: allergen - allergy to be added
+  // Description: adds allergy to users allergies in database
+  const fetchAddAllergy = allergen => {
+    // Fetch res as a json() and then retrieve the .message object
+    fetch(`http://localhost:5000/api/v1/accounts/addAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
+      method: 'POST'
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        // data is a JSON object with the result of the operation
+        if (data.success) {
+            console.log("Allergen added successfully");
+            // You may want to update your UI or perform additional actions here
+        } else {
+            console.error("Error adding allergen:", data.error);
+        }
+    })
+    .catch((error) => {
+        console.error("Error fetching data:", error);
+    });
+  }
+
+  // Description: gets max cookie value
+  const fetchMaxValue = async () => {
+    try {
+      const res = await fetch(`http://localhost:5000/api/v1/accounts/getMaxValue`, {
+        method: 'GET'
+      });
+  
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+  
+      const data = await res.json();
+  
+      // Check if the data contains the max value
+      if (data.maxValue !== undefined) {
+        cookie_value = parseInt(data.maxValue, 10) + 1;
+      } else {
+        console.error("Error getting max value:", data.error);
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   // Parameter: allergy - allergy to be added to allergy list
   // Description: updates state.allergies
   const addAllergy = allergy => {
     const lowerCaseAllergy = allergy.toLowerCase();
     if (!allergies.includes(lowerCaseAllergy)) {
       setAllergies([...allergies, lowerCaseAllergy]);
+      fetchAddAllergy(allergy);
     }
   }
 
@@ -61,6 +175,24 @@ function App() {
   const deleteAllergy = allergyToDelete => {
     setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete.toLowerCase()));
   }
+
+  // Description looks for allergy alert cookie
+  function getCookie() {
+    const name = 'alleryALERTuser=';
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+  
+
+    for(let i = 0; i < cookieArray.length; i++) {
+      let cookie = cookieArray[i].trim();
+      if (cookie.indexOf(name) === 0) {
+        return cookie.substring(name.length, cookie.length);
+      }
+    }
+  
+    return null; // Return null if the cookie with the given name is not found
+  }
+  
 
   // Parameter: recipe - object containing recipe data
   // Description: formats recipe into a readable string output
