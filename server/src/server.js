@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import recipes from "./api/recipes.route.js"
+import accounts from "./api/accounts.route.js"
 import hello from "./api/hello.route.js"
 
 const app = express()
@@ -23,6 +24,7 @@ app.use("/api/v1/hello", hello)
 
 // Database retrievals
 app.use("/api/v1/recipes", recipes)
+app.use("/api/v1/accounts", accounts)
 app.use("*", (req, res) => res.status(404).json({error: "Not Found"}))
 
 export default app
