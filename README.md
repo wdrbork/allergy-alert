@@ -6,21 +6,21 @@ Allergy Alert is a web application designed to help users identify the percentag
 
 ## Repository Layout:
 
-.github: Contains workflows for CI/CD  
-client: Contains frontend code for the website  
-&emsp;&emsp;public: Holds HTML webpages  
-&emsp;&emsp;src: Contains JavaScript/React functions for the webpages  
-reports: Contains the teams weekly status reports  
-server: Contains backend code related to the server and the database  
-&emsp;&emsp;src: Holds the actual source code for the backend  
-&emsp;&emsp;&emsp;&emsp;api: Contains functions for different API calls that might be made by a client  
-&emsp;&emsp;&emsp;&emsp;dao: Holds objects for each collection in our database (currently just 'recipes' and 'accounts')  
-&emsp;&emsp;test: Contains testing code for the backend  
-.gitignore: Includes files that should not be included in git commands  
-ORG.md: Includes the people involved in this project and their roles as well as project artifacts  
-README.md: Summary of project goals as well as installation/testing instructions
-DeveloperManual.md: Guidelines for developers who want to contribute to project
-UserManual.md: Instructions for users to install and use product
+**.github**: Contains workflows for CI/CD  
+**client**: Contains frontend code for the website  
+&emsp;&emsp;**public**: Holds HTML webpages  
+&emsp;&emsp;**src**: Contains JavaScript/React functions for the webpages  
+**reports**: Contains the teams weekly status reports  
+**server**: Contains backend code related to the server and the database  
+&emsp;&emsp;**src**: Holds the actual source code for the backend  
+&emsp;&emsp;&emsp;&emsp;**api**: Contains functions for different API calls that might be made by a client  
+&emsp;&emsp;&emsp;&emsp;**dao**: Holds objects for each collection in our database (currently just 'recipes' and 'accounts')  
+&emsp;&emsp;**test**: Contains testing code for the backend  
+**.gitignore**: Includes files that should not be included in git commands  
+**ORG.md**: Includes the people involved in this project and their roles as well as project artifacts  
+**README.md**: Summary of project goals as well as installation/testing instructions
+**DeveloperManual.md**: Guidelines for developers who want to contribute to project
+**UserManual.md**: Instructions for users to install and use product
 
 ## Installation and Testing Instructions
 1. Ensure that you have the latest version of Git installed
