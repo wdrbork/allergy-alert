@@ -1,4 +1,4 @@
-# Status Report: November 8
+# Status Report: November 22
 ## Team Report
 #### Last Week's Goals:
 - Finalize web interface
