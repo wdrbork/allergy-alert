@@ -10,15 +10,6 @@ const MongoClient = mongodb.MongoClient
 
 const port = process.env.PORT || 5000
 
-app.use(cors(
-    {
-        origin: ["https://allergy-alert.vercel.app/"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
-app.use(express.json())
-
 MongoClient.connect(
     process.env.ALLERGYALERT_DB_URI,
     {

@@ -5,12 +5,13 @@ import accounts from "./api/accounts.route.js"
 import hello from "./api/hello.route.js"
 
 const app = express()
-
-const corsOptions = {
-    origin: "http://localhost:3000" // frontend URI (ReactJS)
-}
-
-app.use(cors(corsOptions))
+app.use(cors(
+    {
+        origin: ["https://allergy-alert.vercel.app/"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json())
 
 // To add a call to the database, include the call "app.use(<URL from root>)"
