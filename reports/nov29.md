@@ -142,7 +142,7 @@ Where I was blocked:
 
 ### Aakanksh Yadav
 #### Last Week's Goals:
-- Run through many more UI design ideas to decide upon one with the rest of the group
+- Draw up one or two more UI design ideas and then talk about it with the team
 - Work on structuring the frontend properly as per the UI design specifics
 - Potentially host front and back ends on Render (or Vercel... more research necessary) but only when the group is ready
 
