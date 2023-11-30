@@ -123,15 +123,19 @@ Where I was blocked:
 - Potentially host front and back ends on Render (or Vercel... more research necessary) but only when the group is ready
 
 #### Progress and Issues:
-What I did:
+What I did: I drew up 2 potential layouts for the UI design of our finished website (taking into consideration all of the different possible components and features we discussed as a group); I shared these with the team to get feedback and sometimes see them refine my design from their perspectives so we could come to consensus.
 
-What worked: 
+What worked: Sitting together in person as we talked through all of this; we originally thought of voting to pick between different designs through messaging but this was not as successful as organic conversation in a physical workspace.
 
-What I learned: 
+What I learned: There were many components of the UI and UX design that I had not even thought about that my group mates suggested (like what aesthetic flairs may be nice and what ones would be too noisy; how I could cater the design of the allergy list more to the users' needs depending on frequency of use; etc.) I also learned of the difficulties involved with choosing only one UI design when there are so many different ones that are all good in their own ways (and how to combine them, in some sense).
 
-Where I had trouble: 
+Where I had trouble: It was hard to go back and forth with the group organically for our UI design ideas due to the break taking away one of our usual meeting times.
 
-Where I was blocked:
+Where I was blocked: For a bit, I was blocked since we had to finalize our decision on one UI design before moving forward to implementation. This is no longer a problem as we finally decided on one just recently and the rest should be smooth sailing.
 
-#### Plans for next week: 
-- 
+#### Plans for next week:
+- Finish and finalize the frontend
+- Help with CSS to implement our UI design concept into our final website
+- Help refine the search system if we have the time and any ideas for that
+- Help the backend developers finish updating our dataset to the full-sized one if needed
+- Finish final milestone!
