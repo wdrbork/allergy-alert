@@ -1,4 +1,4 @@
-# Status Report: November 8
+# Status Report: November 15
 ## Team Report
 #### Last Week's Goals:
 - Implement editing allergies/removing allergies
@@ -110,20 +110,21 @@ Where I was blocked: I got blocked on looking into cookie caching becasue of tim
 
 ### Jack Rosenbloom
 #### Last Week's Goals:
+Last week my goal was to add to the UI for the website by creating a rectangle around the recipes and their associated ingredients in order to make the user experience more friendly and organized.
 
 #### Progress and Issues:
-What I did:
+What I did: I added rectangles to surround each recipe and their ingredients, and made some more designs which we will be voting on discord this week.
 
-What worked:
+What worked: Realizing that the recipe results were stored and then displayed as just strings allowed me to conjure and implement an idea for JSX elements with their content instead.
 
-What I learned:
+What I learned: I learned more about the structure of react web applications and how I can restructure things with ease.
 
-Where I had trouble:
+Where I had trouble: Getting the rectangle to display on screen was more of a conceptual problem than a coding problem, but that was the majority of my trouble I experienced.
 
-Where I was blocked:
+Where I was blocked: I was blocked at first because I didn't realized I had to make the useState for the result and setResult "any" type so that it could be a JSX element and not a string. That way I could make the recipes and ingredients have their string contents stored as part of a JSX element to be rendered on string.
 
 #### Plans for next week: 
-- 
+- Draw out more designs and help team members with other issues if they arise.
 
 ### Aakanksh Yadav
 #### Last Week's Goals:
