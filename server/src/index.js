@@ -7,10 +7,14 @@ const MongoClient = mongodb.MongoClient
 
 const port = process.env.PORT || 5000
 
+let database = process.env.ALLERGYALERT_DB_URI
+if (process.env.NODE_ENV === "testing") {
+    database = process.env.ALLERGYALERT_URI_TEST
+}
+
 MongoClient.connect(
-    process.env.ALLERGYALERT_DB_URI,
-    {
-        wtimeoutMS: 2500 }
+        database,
+        { wtimeoutMS: 2500 }
     )
     .catch(err => {
         console.error(err.stack)

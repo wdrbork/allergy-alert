@@ -38,6 +38,7 @@ export default class RecipesDAO {
      *          filters and the total number of results from the query
      */
     static async getRecipes({ filters = null } = {}) {
+        console.log(filters)
         let query = {}
 
         // Look for recipes that contain the given name, if one is given
@@ -45,6 +46,7 @@ export default class RecipesDAO {
             query = { $text: { $search: filters["name"] } }
         }
 
+        console.log(query)
         // Retrieve the recipes using the query string above
         let cursor
         try {
