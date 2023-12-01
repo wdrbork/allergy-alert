@@ -1,8 +1,6 @@
 import app from './server.js'
 import mongodb from "mongodb"
 import dotenv from "dotenv"
-import cors from "cors"
-import express from "express"
 import RecipesDAO from "./dao/recipesDAO.js"
 import AccountsDAO from "./dao/accountsDAO.js"
 dotenv.config()
@@ -11,9 +9,6 @@ const MongoClient = mongodb.MongoClient
 const port = process.env.PORT || 5000
 
 let database = process.env.ALLERGYALERT_DB_URI
-if (process.env.NODE_ENV === "testing") {
-    database = process.env.ALLERGYALERT_URI_TEST
-}
 
 MongoClient.connect(
         database,
