@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
 
-const BACKEND_URL = "http://localhost:5000"; // "https://allergy-alert-backend.onrender.com"
+const BACKEND_URL = "https://allergy-alert-backend.onrender.com";
 let cookie_value;
 
 function App() {
