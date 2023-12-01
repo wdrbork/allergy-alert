@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import SearchBar from './SearchBar';
 import AllergyList from './AllergyList';
+import DOMPurify from "dompurify";
 
-const BACKEND_URL = "https://allergy-alert-backend.onrender.com"
+const BACKEND_URL = "https://allergy-alert-backend.onrender.com";
 let cookie_value;
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
   //              and then updates state.results
   const fetchRecipe = query => {
     // Fetch res as a json() and then retrieve the .message object
-    fetch(BACKEND_URL + "/api/v1/recipes?name=\"" + query + "\"") // backend URI
+    const sanitizedQuery = DOMPurify.sanitize(query);
+    fetch(BACKEND_URL + "/api/v1/recipes?name=\"" + sanitizedQuery + "\"") // backend URI
       .then((res) => res.json())
       .then((data) => {
         // data is a JSON object with all recipes
@@ -131,8 +133,9 @@ function App() {
   // Parameter: allergen - allergy to be added
   // Description: adds allergy to users allergies in database
   const fetchAddAllergy = allergen => {
+    const sanitizedAllergen = DOMPurify.sanitize(allergen);
     // Fetch res as a json() and then retrieve the .message object
-    fetch(BACKEND_URL + `/api/v1/accounts/addAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
+    fetch(BACKEND_URL + `/api/v1/accounts/addAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${sanitizedAllergen}`, {
       method: 'POST'
     })
     .then((res) => res.json())
@@ -152,8 +155,9 @@ function App() {
   // Parameter: allergen - allergy to be removed
   // Description: removes allergy from users allergies in database
   const fetchRemoveAllergy = allergen => {
+    const sanitizedAllergen = DOMPurify.sanitize(allergen);
     // Fetch res as a json() and then retrieve the .message object
-    fetch(BACKEND_URL + `/api/v1/accounts/removeAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
+    fetch(BACKEND_URL + `/api/v1/accounts/removeAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(sanitizedAllergen)}`, {
       method: 'POST'
     })
     .then((res) => res.json())
@@ -243,7 +247,7 @@ function App() {
     return (
       <div className="recipe-box">
         <label className="recipe-label">
-          {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : ""}
+          {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : "None of your allergens were found in recipes for this item:\n"}
         </label>
         <label className="recipe-content">
           {recipeContent}
