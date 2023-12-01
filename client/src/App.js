@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from './SearchBar';
 import AllergyList from './AllergyList';
 
+const BACKEND_URL = "https://allergy-alert-backend.onrender.com"
 let cookie_value;
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
   //              and then updates state.results
   const fetchRecipe = query => {
     // Fetch res as a json() and then retrieve the .message object
-    fetch("https://allergy-alert-api.vercel.app/api/v1/recipes?name=\"" + query + "\"") // backend URI
+    fetch(BACKEND_URL + "/api/v1/recipes?name=\"" + query + "\"") // backend URI
       .then((res) => res.json())
       .then((data) => {
         // data is a JSON object with all recipes
@@ -80,7 +81,7 @@ function App() {
   // Description: uses fetch on the on value of user cookie
   const fetchAllergens = () => {
     // Fetch res as a json() and then retrieve the .message object
-    fetch(`https://allergy-alert-api.vercel.app/api/v1/accounts?value=${encodeURIComponent(cookie_value)}`) // backend URI
+    fetch(BACKEND_URL + `/api/v1/accounts?value=${encodeURIComponent(cookie_value)}`) // backend URI
       .then((res) => res.json())
       .then((data) => {
         // data is a JSON object with all account info including allergies
@@ -104,7 +105,7 @@ function App() {
   const fetchAddUser = () => {
     return new Promise((resolve, reject) => {
       // Fetch res as a json() and then retrieve object
-      fetch(`https://allergy-alert-api.vercel.app/api/v1/accounts/addUser`, {
+      fetch(BACKEND_URL + `/api/v1/accounts/addUser`, {
         method: 'POST'
       })
       .then((res) => res.json())
@@ -131,7 +132,7 @@ function App() {
   // Description: adds allergy to users allergies in database
   const fetchAddAllergy = allergen => {
     // Fetch res as a json() and then retrieve the .message object
-    fetch(`https://allergy-alert-api.vercel.app/api/v1/accounts/addAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
+    fetch(BACKEND_URL + `/api/v1/accounts/addAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
       method: 'POST'
     })
     .then((res) => res.json())
@@ -152,7 +153,7 @@ function App() {
   // Description: removes allergy from users allergies in database
   const fetchRemoveAllergy = allergen => {
     // Fetch res as a json() and then retrieve the .message object
-    fetch(`https://allergy-alert-api.vercel.app/api/v1/accounts/removeAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
+    fetch(BACKEND_URL + `/api/v1/accounts/removeAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(allergen)}`, {
       method: 'POST'
     })
     .then((res) => res.json())

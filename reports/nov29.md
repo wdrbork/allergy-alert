@@ -40,19 +40,43 @@ release deadline of December 5
 recipes
 
 #### Progress and Issues:
-What I did: 
+What I did: I continued to look into ways we can fix our tests so that they 
+work correctly. I identified the root cause of the problem, and I am hoping to 
+code up the solution within the next couple of days. I also helped the team 
+decide on a final UI design.
 
-What worked: 
+What worked: Communication with the team regarding different UI designs was 
+helpful, as it allowed us to discuss the pros and cons of each design so that
+we can figure out what parts of the interface we actually value. Additionally, 
+reading the Mocha documentation directly rather than relying on some 
+third-party website to explain it to me helped me get a better feel for each 
+of the parts. In particular, I found a method while reading the documentation 
+that executes code before any of the tests, and I plan on using it to fix our 
+current problem with the testing framework
 
-What I learned: 
+What I learned: I learned more about the Mocha framework as well as what I 
+personally value in a good UI design. When it comes to the latter, I have never
+really though about the importance of things like spacing or color when looking
+at interfaces, but looking at designs from Aakanksh, Jack, and Caitlyn helped
+me understand what things matter to customers.
 
-Where I had trouble: 
+Where I had trouble: I'm still having some trouble getting the tests working 
+correctly. I know what the problem is (the "recipes" variable in recipeDAO.js 
+is undefined when the tests run), and I know that the "injectDB" function
+needs to be called at some point before the tests run. I know of a "beforeEach"
+function in Mocha that runs code before each test that I'm hoping to get 
+implemented.
 
-Where I was blocked: 
+Where I was blocked: I thought I would end up working more while I was home 
+for Thanksgiving, but I ended up doing a lot of stuff with my family that 
+prevented me from getting any meaningful work done. Furthermore, I have a 
+group project in another class (data visualization) that is due next Tuesday
+as well, so I might not have enough time to make any serious contributions 
+other than testing and publishing the website.
 
 #### Plans for next week: 
--
--
+- Publish the website on Render
+- Fix the tests
 
 ### Phillip Phan
 #### Last Week's Goals:
@@ -118,20 +142,24 @@ Where I was blocked:
 
 ### Aakanksh Yadav
 #### Last Week's Goals:
-- Run through many more UI design ideas to decide upon one with the rest of the group
+- Draw up one or two more UI design ideas and then talk about it with the team
 - Work on structuring the frontend properly as per the UI design specifics
 - Potentially host front and back ends on Render (or Vercel... more research necessary) but only when the group is ready
 
 #### Progress and Issues:
-What I did:
+What I did: I drew up 2 potential layouts for the UI design of our finished website (taking into consideration all of the different possible components and features we discussed as a group); I shared these with the team to get feedback and sometimes see them refine my design from their perspectives so we could come to consensus.
 
-What worked: 
+What worked: Sitting together in person as we talked through all of this; we originally thought of voting to pick between different designs through messaging but this was not as successful as organic conversation in a physical workspace.
 
-What I learned: 
+What I learned: There were many components of the UI and UX design that I had not even thought about that my group mates suggested (like what aesthetic flairs may be nice and what ones would be too noisy; how I could cater the design of the allergy list more to the users' needs depending on frequency of use; etc.) I also learned of the difficulties involved with choosing only one UI design when there are so many different ones that are all good in their own ways (and how to combine them, in some sense).
 
-Where I had trouble: 
+Where I had trouble: It was hard to go back and forth with the group organically for our UI design ideas due to the break taking away one of our usual meeting times.
 
-Where I was blocked:
+Where I was blocked: For a bit, I was blocked since we had to finalize our decision on one UI design before moving forward to implementation. This is no longer a problem as we finally decided on one just recently and the rest should be smooth sailing.
 
-#### Plans for next week: 
-- 
+#### Plans for next week:
+- Finish and finalize the frontend
+- Help with CSS to implement our UI design concept into our final website
+- Help refine the search system if we have the time and any ideas for that
+- Help the backend developers finish updating our dataset to the full-sized one if needed
+- Finish final milestone!

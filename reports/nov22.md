@@ -143,15 +143,17 @@ Where I was blocked:
 - Potentially host front and back ends on Render (or Vercel... more research necessary) but only when the group is ready
 
 #### Progress and Issues:
-What I did:
+What I did: I talked with my group about potential UI design features we would want to use or what visual elements we wanted to keep from our current design in our final; I drew up one possible design for the final UI and reviewed a couple that other team members made.
 
-What worked: 
+What worked: Scheduling over message but talking about UI design decisions in person.
 
-What I learned: 
+What I learned: I got a better sense for what we needed for an effective UI/UX for our website and what features may be more/less effective when implemented.
 
-Where I had trouble: 
+Where I had trouble: It was a bit hard to work on everything because the break was near and we did not have as much time to work on the project in person (since part of our team had to leave early for Thanksgiving).
 
-Where I was blocked:
+Where I was blocked: Due to scheduling issues surrounding the break, I was not able to get that much done (since even if I made more UI designs, we would not get the chance to meet and talk through them); because of this I will not be able to stet on the frontend yet.
 
 #### Plans for next week: 
-- 
+- Draw up one or two more UI design ideas and then talk about it with the team
+- Work on structuring the frontend properly as per the UI design specifics
+- Potentially host front and back ends on Render (or Vercel... more research necessary) but only when the group is ready
