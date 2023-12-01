@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import request from 'supertest';
 import RecipesDAO from '../src/dao/recipesDAO.js';
-import RecipesController from '../src/api/recipes.controller.js';
 import dotenv from "dotenv"
 dotenv.config()
 
@@ -10,13 +9,8 @@ import mongodb from "mongodb"
 
 const MongoClient = mongodb.MongoClient
 
-before(function (done) {
-  this.timeout(3000);
-  setTimeout(done, 2000);
-})
-
 before(async function() {
-  MongoClient.connect(
+  return MongoClient.connect(
       process.env.ALLERGYALERT_DB_URI,
       { wtimeoutMS: 2500 }
   )
@@ -26,7 +20,6 @@ before(async function() {
   })
   .then(async client => {
       await RecipesDAO.injectDB(client)
-      console.log("Connection established")
   })
 })
 
@@ -59,30 +52,9 @@ describe('Single Result', function() {
         expect(res.body.recipes).to.be.an('array');
         expect(res.body.total_results).to.equal(1);
         expect(res.body.recipes[0].Name).to.deep.equal('No-Bake Nut Cookies');
-        expect(res.body.filters).to.deep.equal({ name: 'No-Bake Nut Cookies' });
+        expect(res.body.filters).to.deep.equal({ name: '"No-Bake Nut Cookies"' });
         done();
       })
-
-    // // Create a mock request object with query parameters
-    // const req = {
-    //   query: {
-    //     name: 'No-Bake Nut Cookies',
-    //   },
-    // };
-
-    // const res = {
-    //   json: (data) => {
-    //     res.body = data;
-    //   },
-    // };
-
-    // // Call the apiGetRecipes method
-    // await RecipesController.apiGetRecipes(req, res);
-
-    // // Assert the response data
-    // expect(res.body.recipes).to.be.an('array');
-    // expect(res.body.filters).to.deep.equal({ name: 'No-Bake Nut Cookies' });
-    // expect(res.body.total_results).to.equal(1);
   });
 });
 
@@ -103,27 +75,18 @@ describe('InvalidRoute', function() {
 // Tests to see that searching for a non-existent recipe returns nothing
 describe('Nonexistent recipe', function() {
   it("should return nothing if a search is done on a recipe that does not " + 
-      "exist in the database", async () => {
-    // Create a mock request object with query parameters
-    const req = {
-      query: {
-        'name': 'this is not a real recipe',
-      },
-    };
+      "exist in the database", (done) => {
+    request(app)
+      .get('/api/v1/recipes?name="this is not a real recipe"')
+      .expect(200)
+      .end((err, res) => {
+        if (err) return done(err);
 
-    const res = {
-      json: (data) => {
-        res.body = data;
-      },
-    };
-
-    // Call the apiGetRecipes method
-    await RecipesController.apiGetRecipes(req, res);
-
-    // Assert the response data
-    expect(res.body.recipes).to.be.an('array');
-    expect(res.body.recipes).to.deep.equal([]);
-    expect(res.body.filters).to.deep.equal({ name: 'this is not a real recipe' });
-    expect(res.body.total_results).to.equal(0);
+        expect(res.body.recipes).to.be.an('array');
+        expect(res.body.recipes).to.deep.equal([]);
+        expect(res.body.filters).to.deep.equal({ name: '"this is not a real recipe"' });
+        expect(res.body.total_results).to.equal(0);
+        done();
+      })
   })
 })

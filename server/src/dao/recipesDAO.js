@@ -1,4 +1,3 @@
-import mongodb from "mongodb"
 let recipes
 
 export default class RecipesDAO {
