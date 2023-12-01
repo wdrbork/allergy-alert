@@ -2,17 +2,6 @@ import React, { useState } from 'react';
 
 function SearchBar({ placeholder, emitSearchIntent }) {
   const [searchTerm, setSearchTerm] = useState('');
-  // const [isFocused, setIsFocused] = useState(false);
-
-  // const handleFocus = () => {
-  //   setIsFocused(true);
-  // };
-
-  // const handleBlur = () => {
-  //   if (searchTerm === '') {
-  //     setIsFocused(false);
-  //   }
-  // };
 
   // Parameter: e - captured key event
   // Description: updates state.searchTerm with text box value
@@ -37,8 +26,6 @@ function SearchBar({ placeholder, emitSearchIntent }) {
         onKeyUp={keyUpEventHandler}
         value={searchTerm}
         onChange={handleInputChange}
-        // onFocus={handleFocus}
-        // onBlur={handleBlur}
       />
     </div>
   );
