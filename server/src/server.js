@@ -5,7 +5,7 @@ import accounts from "./api/accounts.route.js"
 import hello from "./api/hello.route.js"
 
 const app = express()
-const FRONTEND_URL = "https://allergyalert.onrender.com"
+const FRONTEND_URL = "http://localhost:3000"; // "https://allergyalert.onrender.com"
 
 const corsOptions = {
     origin: FRONTEND_URL
