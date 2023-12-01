@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import SearchBar from './SearchBar';
+import NavBar from './NavBar';
 import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
 
@@ -11,7 +12,7 @@ function App() {
   const [results, setResults] = useState();
   const [allergies, setAllergies] = useState([]);
   const isMounted = useRef(true);
-
+  const [allergyDisplay, setAllergyDisplay] = useState(false);
 
   // runs when app component mounted
   useEffect(() => {
@@ -209,7 +210,6 @@ function App() {
     return null; // Return null if the cookie with the given name is not found
   }
   
-
   // Parameter: recipe - object containing recipe data
   // Description: formats recipe into a readable string output
   const recipeToString = recipe => {
@@ -256,11 +256,16 @@ function App() {
     );
   }
 
+  // Description: toggles the allergy list display
+  const toggleAllergyList = () => {
+    setAllergyDisplay(!allergyDisplay)
+  }
+
   
   return (
     <div className="App" data-testid="app-instance">
       <header className="App-header">
-        <h2 className="logo-text">Allergy Alert</h2>
+        <NavBar emitDisplayAllergyListIntent={toggleAllergyList}/>
       </header>
       <main>
         <section>
@@ -271,7 +276,11 @@ function App() {
           </p>
         </section>
         <section>
-          <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
+          {
+            allergyDisplay ?
+            <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
+            : null
+          }
           <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => fetchRecipe(query)} />
           <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
         </section>
