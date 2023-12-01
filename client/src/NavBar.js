@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function SearchBar({emitDisplayAllergyListIntent}) {
   // Description: Emits the user's intent to toggle the allergy list to App.js

@@ -189,7 +189,8 @@ function App() {
   // Parameter: allergy - allergy to be deleted from allergy list
   // Description: updates state.allergies
   const deleteAllergy = allergyToDelete => {
-    setAllergies(allergies => allergies.filter(allergy => allergy !== allergyToDelete.toLowerCase()));
+    setAllergies(allergies => 
+        allergies.filter(allergy => allergy !== allergyToDelete.toLowerCase()));
     fetchRemoveAllergy(allergyToDelete);
   }
 
@@ -227,18 +228,14 @@ function App() {
     let allergyFound = false;
 
     for (let i = 0; i < ingredientNames.length; i++) {
-      allergies.forEach((allergy) => {
-        if (allergy === ingredientNames[i].toLowerCase()) {
-          allergyFound = true;
-        } else if (allergy + "s" === ingredientNames[i].toLowerCase()) {
-          allergyFound = true;
-        } else if (allergy.slice(-1) === "s") {
-          if (allergy.slice(0, -1) === ingredientNames[i].toLowerCase()) {
-            allergyFound = true;
-          }
-        }
-      });
-      ingredientPercentages.push(`${ingredientNames[i]} - ${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%`)
+      if (allergyFound === false && 
+          ingredientIsAllergy(ingredientNames[i], allergies))
+      {
+        allergyFound = true;
+      }
+
+      ingredientPercentages.push(`${ingredientNames[i]} - 
+          ${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%`)
     }
 
     const recipeContent = `${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`;
@@ -287,6 +284,21 @@ function App() {
       </main>
     </div>
   );
+}
+
+// Helper function that determines if an ingredient is on the allergy list
+function ingredientIsAllergy(ingredient, allergies) {
+  for (const allergy of allergies) {
+    if (allergy === ingredient.toLowerCase() ||
+        allergy + 's' === ingredient.toLowerCase() || 
+        (allergy.slice(-1) === "s" && 
+            allergy.slice(0, -1) === ingredient.toLowerCase()))
+    {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 export default App;
