@@ -63,14 +63,14 @@ Then doing either of the following:
     - Run `node -v` on your device's terminal
     - If an error occurs, go [here](https://nodejs.org/en/download) to download the latest version of Node.js
 4. Install backend dependencies by navigating to the "server" directory and running `npm install`
-5. Install frontend dependencies by navigating to the "client" directory and running `npm install`
+5. Install frontend dependencies by navigating to the "client" directory and running `npm install`  
 
 ### How to Build the Software
 After installing the software, use one terminal to run `npm start` under the "server" directory and another terminal to run `npm start` under the "client" directory. This will start up the servers for both the frontend and the backend.
     - If you receive an error saying that nodemon cannot be loaded because running scripts is disabled on your system, you will need to change your system's execution policy
     - To do this on Windows, run Powershell as an administrator, and call the command `Get-ExecutionPolicy`. It should be "Restricted." Then, call `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`. This will allow you to run nodemon.
     - If you ever want to go back on this change, simply call the command `Set-ExecutionPolicy Restricted -Scope CurrentUser`
-    - For more information on execution policies, see [the Microsoft docs](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)
+    - For more information on execution policies, see [the Microsoft docs](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3)  
 
 ### How to Test the Software
 After installing the software, to run tests for the backend, navigate to the "server" directory and run `npm test`. To run tests for the frontend, navigate to the "client" directory and run `npm test`. 
@@ -79,4 +79,8 @@ After installing the software, to run tests for the backend, navigate to the "se
 Use descriptive test names and group similar tests under a describe() function.  
 
 - For server tests: Add tests to server/scr/test folder.  
-Use this link as a reference for writing mocha tests: https://www.browserstack.com/guide/unit-testing-for-nodejs-using-mocha-and-chai
+Use this link as a reference for writing mocha tests: https://www.browserstack.com/guide/unit-testing-for-nodejs-using-mocha-and-chai  
+
+
+For additional information on frontend installation, buildling, and testing navigate to: For additional information for frontend installation, refer to https://github.com/wdrbork/allergy-alert/blob/main/client/README.md#getting-started-with-create-react-app  
+
