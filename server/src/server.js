@@ -1,3 +1,13 @@
+/*
+  Configuration and setup of the Allergy Alert Express server.
+ 
+  Description:
+  This file configures an Express.js server for the Allergy Alert application. It includes
+  middleware such as CORS for handling cross-origin requests, sets up routes for different
+  API endpoints, and defines database retrieval routes. Additionally, it provides testing
+  endpoints for connectivity and handles 404 errors.
+*/
+
 import express from "express"
 import cors from "cors"
 import recipes from "./api/recipes.route.js"

@@ -1,3 +1,7 @@
+/*
+  This file defines the AccountsDAO class, which encapsulates methods for interacting with the "accounts" collection in the MongoDB database.
+*/
+
 import { ObjectId } from 'mongodb'
 let accounts
 

@@ -1,3 +1,11 @@
+/*
+  Main entry point for the Allergy Alert application.
+ 
+  Description:
+  This file initializes the server, establishes a connection to the MongoDB database,
+  and sets up key components for handling HTTP requests and managing data.
+ */
+
 import app from './server.js'
 import mongodb from "mongodb"
 import dotenv from "dotenv"

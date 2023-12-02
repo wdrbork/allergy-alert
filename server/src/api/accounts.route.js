@@ -1,3 +1,7 @@
+/*
+  This file defines an Express router for handling API endpoints related to user accounts and allergens.
+*/
+
 import express from "express"
 import AccountsCtrl from "./accounts.controller.js"
 

@@ -1,3 +1,7 @@
+/*
+  This file defines the RecipesDAO class, which encapsulates methods for interacting with the "recipes" collection in the MongoDB database.
+*/
+
 let recipes
 
 export default class RecipesDAO {
