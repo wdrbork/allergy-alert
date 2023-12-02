@@ -59,7 +59,7 @@ Then doing either of the following:
     - Run `git version` on your device's terminal
     - If an error occurs, go [here](https://git-scm.com/downloads) to download the latest version of Git
 2. Download the repository using the command `git clone https://github.com/wdrbork/allergy-alert.git`
-3. Ensure that you have the latest version of Node.js installed
+3. Ensure that you have version v20.9.0 of Node.js or later installed
     - Run `node -v` on your device's terminal
     - If an error occurs, go [here](https://nodejs.org/en/download) to download the latest version of Node.js
 4. Install backend dependencies by navigating to the "server" directory and running `npm install`
