@@ -1,3 +1,9 @@
+/*
+  This stylesheet contains styles for various components and elements within the
+  Allergy Alert application. It defines the appearance of recipe boxes, labels, content,
+  logo text, headers, navigation menu, search bars, tables, and boxes containing elements.
+*/
+
 /* Style for recipe box */
 .recipe-box {
   border: 1px solid #333;

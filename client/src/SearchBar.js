@@ -1,3 +1,12 @@
+/*
+  Component responsible for rendering the search bar in the Allergy Alert application.
+ 
+  Description:
+  This component represents the search bar in the Allergy Alert application's user interface.
+  It allows users to input recipe names for searching and triggers the search intent when the "Enter" key is pressed.
+  The component communicates with the parent component (App.js) by emitting the user's search intent.
+*/
+
 import React, { useState } from 'react';
 
 function SearchBar({ placeholder, emitSearchIntent }) {

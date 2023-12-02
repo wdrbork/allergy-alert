@@ -1,3 +1,13 @@
+/* 
+  React component for displaying a list of allergies and handling allergy-related actions.
+ 
+  Description:
+  This component renders a search bar for adding new allergies, a list of existing allergies,
+  and provides a way to delete individual allergies. It utilizes React state to manage the
+  input field and dynamically updates the list of allergies. The component communicates
+  with parent components by emitting intents to add or delete allergies.
+*/
+
 import React, { useState } from 'react';
 import './App.css';
 

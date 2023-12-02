@@ -1,3 +1,15 @@
+/* 
+  Main component for the Allergy Alert application.
+ 
+  Description:
+  This component serves as the entry point for the Allergy Alert application.
+  It includes functionality for fetching recipes based on user input, managing user allergies,
+  and displaying recipe information. The component interacts with the backend API to retrieve
+  and update data. It also integrates child components such as SearchBar, NavBar, and AllergyList.
+  The component handles user authentication, sets up initial user data, and manages state updates.
+  
+*/
+
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import SearchBar from './SearchBar';

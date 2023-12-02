@@ -1,3 +1,7 @@
+/*
+  Test suite for the Allergy Alert recipes-related routes and database queries.
+*/
+
 import { expect } from 'chai';
 import request from 'supertest';
 import RecipesDAO from '../src/dao/recipesDAO.js';

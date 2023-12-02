@@ -1,5 +1,8 @@
+/*
+  Unit tests for the App component using the testing-library/react library.
+*/
+
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import App from './App';
 
 test('test', () => {

@@ -1,3 +1,7 @@
+/*
+  This file defines the AccountsController class, which serves as a controller for handling API requests related to user accounts and allergens.
+*/
+
 import AccountsDAO from "../dao/accountsDAO.js"
 
 export default class AccountsController {
