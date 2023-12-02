@@ -18,9 +18,5 @@ Guidelines for bug reports:
 Refer to this document for additional information on bug reporting practices: https://github.com/brycelelbach/cpp_bug_reporting_guidelines
 
 ## Known Bugs
-Currently there are a few issues with our website:
-
-1. Since we are using string-matching, plural words may not be found as ingredients to the search recipe.
-2. Users are able to add duplicate allergies.
-3. If certain ingredients have allergies, the website will not display those allergies since they are deeper down
+1. If certain ingredients have allergies, the website will not display those allergies since they are deeper down
 than our priorities for the project thus far.
