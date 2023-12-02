@@ -21,8 +21,9 @@ Submit a bug using the "Issues" section on our project's Github: https://github.
 Guidelines for bug reports:
 1. Use the GitHub issue search — check if the issue has already been reported.
 2. Create a new issue.
-3. Explain the steps you took to get to the place where the bug occured when reporting.
-Refer to this document for additional information on bug reporting practices: https://github.com/brycelelbach/cpp_bug_reporting_guidelines
+3. Explain the steps you took to get to the place where the bug occured when reporting.  
+Refer to this bug reporting template: https://gist.github.com/czottmann/3402842  
+Refer to this document for additional information on bug reporting practices: https://github.com/brycelelbach/cpp_bug_reporting_guidelines  
 
 ### Known Bugs
 1. If certain ingredients have allergies, the website will not display those allergies since they are deeper down
@@ -90,7 +91,7 @@ Then doing either of the following:
 ### How to Install the Software
 1. Ensure that you have the latest version of Git installed
     - Run `git version` on your device's terminal
-    - If an error occurs, go [here](https://git-scm.com/downloads) to download the latest version of Git
+    - If an error occurs when trying to clone the repository, go [here](https://git-scm.com/downloads) to download the latest version of Git
 2. Download the repository using the command `git clone https://github.com/wdrbork/allergy-alert.git`
 3. Ensure that you have version v20.9.0 of Node.js or later installed
     - Run `node -v` on your device's terminal
@@ -107,6 +108,9 @@ After installing the software, use one terminal to run `npm start` under the "se
 
 ### How to Test the Software
 After installing the software, to run tests for the backend, navigate to the "server" directory and run `npm test`. To run tests for the frontend, navigate to the "client" directory and run `npm test`. 
+
+### Continuous integration  
+For our CI we are using Github actions. The workflow we used can be found in ./.github/workflows folder. It gets triggers on pushes and pull requests to the respository. Ensure that actions ran successfully after adding to the repository.  
 
 ### How to add new tests
 Use descriptive test names and group similar tests under a describe() function.  
