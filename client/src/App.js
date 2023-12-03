@@ -18,7 +18,7 @@ import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
-if (process.env.NODE_ENV=== "test") {
+if (process.env.NODE_ENV=== "development") {
   backend_url = "http://localhost:5000";
 }
 
@@ -125,7 +125,7 @@ function App() {
 
       })
       let totals = totalToString(dict, query, totalNumberOfRecipe);
-      setTotal(totals)
+      setTotal(totals);
     })
   }
 
@@ -137,23 +137,38 @@ function App() {
     for (let i = 0; i < ingredients.length; i++) {
       ingredientPercentage.push(`${((ingredientCounts[i] / totalNumberOfRecipe) * 100).toFixed(1)}%\t${ingredients[i]}`)
     }
-    const totalContent = `\nIngredient Likelihoods:\n${ingredientPercentage.join("\n")}`;
+    const totalContent = `\nAllergen Likelihoods:\n${ingredientPercentage.join("\n")}`;
     
-
-    return (
-      <div className="recipe-box">
-        <label className="recipe-label">
-          {"Total recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
-        </label>
-        <label className="recipe-label">
-          {"\nThese were the allergies found in the recipe " + query +  " and the percentage of recipe that contain them"}
-          <br></br>
-        </label>
-        <label className="recipe-content">
-          {totalContent}
-        </label>
-      </div>
-    );
+    if (totalNumberOfRecipe === 0) {
+      return;
+    } else if (ingredientPercentage.length === 0) {
+      return (
+        <div className="recipe-box">
+          <label className="recipe-label">
+            {"Total recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
+          </label>
+          <label className="recipe-label">
+            {"\nNone of your allergens were found in these recipes."}
+            <br></br>
+          </label>
+        </div>
+      );
+    } else {
+      return (
+        <div className="recipe-box">
+          <label className="recipe-label">
+            {"Total recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
+          </label>
+          <label className="recipe-label">
+            {"\nThese were the allergies found in recipes for " + query +  " and the percentage of recipes that contain them"}
+            <br></br>
+          </label>
+          <label className="recipe-content">
+            {totalContent}
+          </label>
+        </div>
+      );
+    }
   };
 
 
@@ -320,7 +335,8 @@ function App() {
     return (
       <div className="recipe-box">
         <label className="recipe-label">
-          {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : "None of your allergens were found in recipes for this item:\n"}
+          {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : 
+            "None of your allergens were found in recipes for this item:\n"}
         </label>
         <label className="recipe-label">
           {"Total recipes: " + recipeTotal + "\n"}
