@@ -111,7 +111,11 @@ function App() {
         const ingredients = Object.keys(recipe).slice(1, -2);
         ingredients.forEach((ingred, index) => {
           if (ingredientIsAllergy(ingred, allergies) === true) {
-            dict[ingred.toLowerCase()] = (dict[ingred.toLowerCase()] || 0) + 1;
+            var ingredient = ingred.toLowerCase();
+            if (ingredient.slice(-1) === "s") {
+              ingredient = ingredient.slice(0, -1);
+            }
+            dict[ingredient] = (dict[ingredient] || 0) + 1;
           }
         })
 
