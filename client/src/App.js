@@ -25,6 +25,7 @@ function App() {
   const [allergies, setAllergies] = useState([]);
   const isMounted = useRef(true);
   const [allergyDisplay, setAllergyDisplay] = useState(false);
+  const [total, setTotal] = useState();
 
   // runs when app component mounted
   useEffect(() => {
@@ -92,6 +93,61 @@ function App() {
         }
       })
   }
+
+  // This is the function for the total box
+  const fetchRecipeTotal = query => {
+    const sanitizedQuery = DOMPurify.sanitize(query);
+    fetch(BACKEND_URL + "/api/v1/recipes?name=\"" + sanitizedQuery + "\"") // backend URI
+    .then((res) => res.json())
+    .then((data) => {
+      var dict = {};
+      var totalNumberOfRecipe = 0;
+
+      data["recipes"].forEach((recipe) => {
+
+
+        totalNumberOfRecipe += recipe.Total
+
+        const ingredients = Object.keys(recipe).slice(1, -2);
+        ingredients.forEach((ingred, index) => {
+          if (ingredientIsAllergy(ingred, allergies) === true) {
+            dict[ingred.toLowerCase()] = (dict[ingred.toLowerCase()] || 0) + 1;
+          }
+        })
+
+      })
+      let totals = totalToString(dict, query, totalNumberOfRecipe);
+      setTotal(totals)
+    })
+  }
+
+  // This is the function for the total box
+  const totalToString = (dict, query, totalNumberOfRecipe) => {
+    const ingredientPercentage = []
+    const ingredients = Object.keys(dict);
+    const ingredientCounts = Object.values(dict);
+    for (let i = 0; i < ingredients.length; i++) {
+      ingredientPercentage.push(`${ingredients[i]} - 
+      ${((ingredientCounts[i] / totalNumberOfRecipe) * 100).toFixed(1)}%`)
+    }
+    const totalContent = `\nIngredients:\n${ingredientPercentage.join("\n")}`;
+    
+
+    return (
+      <div className="recipe-box">
+        <label className="recipe-label">
+          {"Total recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
+        </label>
+        <label className="recipe-label">
+          {"\nThese were the allergies found in the recipe " + query +  " and the percentage of recipe that contain them"}
+        </label>
+        <label className="recipe-content">
+          {totalContent}
+        </label>
+      </div>
+    );
+  };
+
 
   // Description: uses fetch on the on value of user cookie
   const fetchAllergens = () => {
@@ -229,6 +285,7 @@ function App() {
     // Total number of recipes for this food
     const recipeTotal = recipe["Total"];
 
+
     // Get ingredient names and counts (remove first and last elements)
     const ingredientNames = Object.keys(recipe).slice(1, -2);
     const ingredientCounts = Object.values(recipe).slice(1, -2);
@@ -257,6 +314,9 @@ function App() {
       <div className="recipe-box">
         <label className="recipe-label">
           {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : "None of your allergens were found in recipes for this item:\n"}
+        </label>
+        <label className="recipe-label">
+          {"Total recipes: " + recipeTotal + "\n"}
         </label>
         <label className="recipe-content">
           {recipeContent}
@@ -290,7 +350,8 @@ function App() {
             <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
             : null
           }
-          <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => fetchRecipe(query)} />
+          <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => [fetchRecipe(query), fetchRecipeTotal(query)]} />
+          <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{total}</div>
           <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
         </section>
       </main>
