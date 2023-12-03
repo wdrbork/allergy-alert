@@ -16,12 +16,10 @@ import SearchBar from './SearchBar';
 import NavBar from './NavBar';
 import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
-import dotenv from "dotenv";
-dotenv.config();
 
-let backend_url = process.env.BACKEND_URL;
+let backend_url = "https://allergy-alert-backend.onrender.com";
 if (process.env.NODE_ENV=== "test") {
-  backend_url = "http://localhost:" + process.env.BACKEND_PORT;
+  backend_url = "http://localhost:5000";
 }
 
 let cookie_value;
