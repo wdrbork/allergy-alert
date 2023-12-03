@@ -127,10 +127,9 @@ function App() {
     const ingredients = Object.keys(dict);
     const ingredientCounts = Object.values(dict);
     for (let i = 0; i < ingredients.length; i++) {
-      ingredientPercentage.push(`${ingredients[i]} - 
-      ${((ingredientCounts[i] / totalNumberOfRecipe) * 100).toFixed(1)}%`)
+      ingredientPercentage.push(`${((ingredientCounts[i] / totalNumberOfRecipe) * 100).toFixed(1)}%\t${ingredients[i]}`)
     }
-    const totalContent = `\nIngredients:\n${ingredientPercentage.join("\n")}`;
+    const totalContent = `\nIngredient Likelihoods:\n${ingredientPercentage.join("\n")}`;
     
 
     return (
@@ -303,11 +302,10 @@ function App() {
         allergyFound = true;
       }
 
-      ingredientPercentages.push(`${ingredientNames[i]} - 
-          ${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%`)
+      ingredientPercentages.push(`${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%\t${ingredientNames[i]}`)
     }
 
-    const recipeContent = `${recipe["Name"]}:\nIngredients:\n${ingredientPercentages.join("\n")}`;
+    const recipeContent = `${recipe["Name"]}:\nIngredient Likelihoods:\n${ingredientPercentages.join("\n")}`;
     
     // check for if one of the allergens was found
     return (
