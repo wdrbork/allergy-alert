@@ -16,8 +16,14 @@ import SearchBar from './SearchBar';
 import NavBar from './NavBar';
 import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
+import dotenv from "dotenv";
+dotenv.config();
 
-const BACKEND_URL = "https://allergy-alert-backend.onrender.com";
+let backend_url = process.env.BACKEND_URL;
+if (process.env.NODE_ENV=== "test") {
+  backend_url = "http://localhost:" + process.env.BACKEND_PORT;
+}
+
 let cookie_value;
 
 function App() {
@@ -59,7 +65,7 @@ function App() {
   const fetchRecipe = query => {
     // Fetch res as a json() and then retrieve the .message object
     const sanitizedQuery = DOMPurify.sanitize(query);
-    fetch(BACKEND_URL + "/api/v1/recipes?name=\"" + sanitizedQuery + "\"") // backend URI
+    fetch(backend_url + "/api/v1/recipes?name=\"" + sanitizedQuery + "\"") // backend URI
       .then((res) => res.json())
       .then((data) => {
         // data is a JSON object with all recipes
@@ -97,7 +103,7 @@ function App() {
   // This is the function for the total box
   const fetchRecipeTotal = query => {
     const sanitizedQuery = DOMPurify.sanitize(query);
-    fetch(BACKEND_URL + "/api/v1/recipes?name=\"" + sanitizedQuery + "\"") // backend URI
+    fetch(backend_url + "/api/v1/recipes?name=\"" + sanitizedQuery + "\"") // backend URI
     .then((res) => res.json())
     .then((data) => {
       var dict = {};
@@ -156,7 +162,7 @@ function App() {
   // Description: uses fetch on the on value of user cookie
   const fetchAllergens = () => {
     // Fetch res as a json() and then retrieve the .message object
-    fetch(BACKEND_URL + `/api/v1/accounts?value=${encodeURIComponent(cookie_value)}`) // backend URI
+    fetch(backend_url + `/api/v1/accounts?value=${encodeURIComponent(cookie_value)}`) // backend URI
       .then((res) => res.json())
       .then((data) => {
         // data is a JSON object with all account info including allergies
@@ -180,7 +186,7 @@ function App() {
   const fetchAddUser = () => {
     return new Promise((resolve, reject) => {
       // Fetch res as a json() and then retrieve object
-      fetch(BACKEND_URL + `/api/v1/accounts/addUser`, {
+      fetch(backend_url + `/api/v1/accounts/addUser`, {
         method: 'POST'
       })
       .then((res) => res.json())
@@ -208,7 +214,7 @@ function App() {
   const fetchAddAllergy = allergen => {
     const sanitizedAllergen = DOMPurify.sanitize(allergen);
     // Fetch res as a json() and then retrieve the .message object
-    fetch(BACKEND_URL + `/api/v1/accounts/addAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${sanitizedAllergen}`, {
+    fetch(backend_url + `/api/v1/accounts/addAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${sanitizedAllergen}`, {
       method: 'POST'
     })
     .then((res) => res.json())
@@ -230,7 +236,7 @@ function App() {
   const fetchRemoveAllergy = allergen => {
     const sanitizedAllergen = DOMPurify.sanitize(allergen);
     // Fetch res as a json() and then retrieve the .message object
-    fetch(BACKEND_URL + `/api/v1/accounts/removeAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(sanitizedAllergen)}`, {
+    fetch(backend_url + `/api/v1/accounts/removeAllergen?value=${encodeURIComponent(cookie_value)}&allergen=${encodeURIComponent(sanitizedAllergen)}`, {
       method: 'POST'
     })
     .then((res) => res.json())

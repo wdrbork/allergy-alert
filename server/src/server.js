@@ -13,12 +13,18 @@ import cors from "cors"
 import recipes from "./api/recipes.route.js"
 import accounts from "./api/accounts.route.js"
 import hello from "./api/hello.route.js"
+import dotenv from "dotenv"
+dotenv.config()
 
 const app = express()
-const FRONTEND_URL = "https://allergyalert.onrender.com";
+
+let frontend_url = process.env.FRONTEND_URL;
+if (process.env.NODE_ENV.trim() === "testing") {
+    frontend_url = "http://localhost:" + process.env.FRONTEND_PORT;
+}
 
 const corsOptions = {
-    origin: FRONTEND_URL
+    origin: frontend_url
 }
 
 app.use(cors(corsOptions))
