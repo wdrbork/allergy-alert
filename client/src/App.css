@@ -1,3 +1,17 @@
+/* COLOR SCHEME 1
+- Logo text color: #d99702
+- Header background: #68c5cc
+- Text color: #063941
+- Background color: #cee5e7
+*/
+
+/* Set a background color and text color for the entire page */
+.html, .body {
+  font-family: Helvetica, sans-serif;
+  background-color: #FCFCFC;
+  color: #171219;
+}
+
 /* Style for recipe box */
 .recipe-box {
   /*border: 1px solid #333;*/
@@ -5,7 +19,7 @@
   padding: 10px;
   margin-bottom: 20px;
   margin-right: 60%;
-  background-color: #fff;
+  background-color: #FCFCFC;
 }
 
 /* Style for recipe label */
@@ -19,131 +33,110 @@
   margin-top: 10px;
 }
 
-.logo-text {
-  font-size: 200%; /* was 100px */
-  color: #d99702;
-  text-align: left;
-  /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;*/
-}
-
-.logo-box {
-  background-color: #68c5cc;
-  margin-bottom: 2%;
-  margin-top: .5%;
-  margin-left: .5%;
-  margin-right: .5%;
-  padding: 2%;
-}
-
-.help-box, .faq-box, .manage-allergies-box {
-  background-color: #68c5cc;
-  margin-bottom: 2%;
-  margin-top: .5%;
-  margin-right: .5%;
-}
-
-.help-box {
-  margin-left: 60%;
-}
-
-.faq-box, .manage-allergies-box {
-  margin-left: 2%;
-}
-
-.manage-allergies-box {
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.manage-allergies-text {
-  color: #d99702;
-}
-
-.faq-text, .help-text, .manage-allergies-text {
-  font-size: 60%;
-  text-align: right;
-  text-decoration: underline;
-}
-.faq-text, .help-text {
-  color: #063941;
-}
-
-.allergy-box {
-  display: inline-block;
-  height: 23px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-bottom: 3px;
-  border-radius: 15px;
-  background-color: #fff;
-  margin: 5px;
-  width: auto;
-}
-
-/* Reset headers and paragraphs */
-h1 {
-  padding: 0;
-  margin-bottom: 0;
-}
-
-h2, h3 {
-  margin: 0;
-  padding: 40;
-}
-
-p, ul {
-  margin: 0;
-  padding: 0;
-}
-
-/* Set a background color and text color for the entire page */
-html, body {
-  background-color: #cee5e7; /* was #86c4f3 */
-  background-size: cover; /* Adjust the sizing of the background image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  background-attachment: fixed; /* Fixed background position */
-  color: #333;
-  font-family: Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 /* Style the header with a background color, text color, and text alignment */
 header {
-  background-color: #68c5cc;
-  color: #fff;
+  padding: 1rem;
+  padding-left: 2%;
+  padding-right: 2%;
   text-align: center;
-  padding: 40px; /* maybe change to percent */
+  background-color: #00B9AE;
 }
 
-/* Style the navigation menu to create a horizontal list */
-nav menu {
-  background-color: #333;
+.nav-bar {
+  height: 4rem;
+  padding-left: 1%;
+  padding-right: 1%;
+  display: grid;
+  grid-template-columns: 70% 15% 15%;
+}
+
+/* LOGO */
+
+.logo-text {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: auto;
+  width: 50%;
+  color: #225560;
+  text-align: left;
+  font-weight: bold;
+  font-size: 200%;
+}
+
+/* NAVBAR LABELS */
+
+.navbar-label-box {
+  margin: auto;
+  margin-right: 25%;
+}
+
+.navbar-label-text {
+  color: #FCFCFC;
+  font-weight: bold;
+  text-align: right;
+  cursor: pointer;
+}
+
+.navbar-label-text:hover {
+  text-decoration: underline;
+}
+
+/* MANAGE ALLERGIES */
+
+.allergy-list-toggle {
+  margin: auto;
+  margin-left: 0;
+  margin-right: 0;
+  height: 70%;
+  border: none;
+  border-radius: 10px;
+  color: #225560;
+  background-color: #FCFCFC;
+  font-size: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.allergy-list-toggle:active {
+  color: #FCFCFC;
+  background-color: #00B9AE;
+}
+
+.allergy-list-toggle:hover {
+  text-decoration: underline;
+}
+
+/* ALLERGY LIST */
+
+.allergy-box {
+  position: fixed;
+  padding: 1rem;
+  top: 7rem;
+  right: 1rem;
+  width: 25%;
+  border: solid;
+  border-radius: 10px;
+  border-color: #225560;
+  background-color: #FCFCFC;
+}
+
+.allergy-search-bar {
   text-align: center;
-  padding: -10px;
 }
 
-/* nav menu list */
-nav ul {
-  list-style: none;
+.allergy-search-bar input {
+  width: 95%;
 }
 
-/* nav menu list items */
-nav li {
-  display: inline;
-  margin-right: 20px;
+.allergy-tag {
+  width: auto;
+  height: 3rem;
+  border: solid;
+  border-radius: 10px;
 }
 
-/* nav menu link */
-nav link {
-  text-decoration: none;
-  color: #fff;
-}
-
-/* Style the main content section */
-main content {
-  padding: 20px;
+.allergy-tag p {
+  margin: 0.5rem;
 }
 
 /* Additional styles for search bars and allergy list table */
@@ -167,17 +160,4 @@ main content {
 
 .search-bar input:focus {
   color: #000;
-}
-
-table, th, td {
-  border: 1px solid #333;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  text-align: center;
 }

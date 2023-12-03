@@ -8,7 +8,11 @@ function SearchBar({emitDisplayAllergyListIntent}) {
 
   return (
     <div className="nav-bar">
-      <h2 className="logo-text">Allergy Alert</h2>
+      <div className="logo-text">Allergy Alert</div>
+            
+      <div className="navbar-label-box">
+        <div className="navbar-label-text">About</div>
+      </div>
 
       <input
         className="allergy-list-toggle"
