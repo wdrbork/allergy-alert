@@ -19,7 +19,7 @@
   padding: 10px;
   margin-bottom: 20px;
   margin-right: 60%;
-  background-color: #FCFCFC;
+  background-color: #f0f0f0;
 }
 
 /* Style for recipe label */
@@ -31,6 +31,7 @@
 /* Style for recipe content */
 .recipe-content {
   margin-top: 10px;
+  color: #000000;
 }
 
 /* Style the header with a background color, text color, and text alignment */
@@ -142,11 +143,15 @@ header {
 /* Additional styles for search bars and allergy list table */
 .search-bar {
   display: inline-block;
-  margin: 10px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 5px;
   background-color: #f0f0f0;
+  width: 30%;
 }
 
 .search-bar input {
@@ -155,7 +160,7 @@ header {
   font-size: 16px;
   color: #ccc;
   outline: none;
-  width: 150px;
+  width: 100%;
 }
 
 .search-bar input:focus {

@@ -143,6 +143,7 @@ function App() {
         </label>
         <label className="recipe-label">
           {"\nThese were the allergies found in the recipe " + query +  " and the percentage of recipe that contain them"}
+          <br></br>
         </label>
         <label className="recipe-content">
           {totalContent}
@@ -321,6 +322,7 @@ function App() {
           {"Total recipes: " + recipeTotal + "\n"}
         </label>
         <label className="recipe-content">
+          <br></br>
           {recipeContent}
         </label>
       </div>
