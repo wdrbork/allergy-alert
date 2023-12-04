@@ -127,18 +127,18 @@ unique values for the cookies.
 - Draw out more designs and help team members with other issues if they arise.
 
 #### Progress and Issues:
-What I did: 
+What I did: I designed a few more UI layouts and themes for the website. I also began looking into animations for the UI elements.
 
-What worked: 
+What worked: I found FramerMotion as a free toolkit/library for doing JSX animations with React.
 
-What I learned: 
+What I learned: I learned a bit of the basics of FramerMotion, even though no animations were put into effect in the website yet.
 
-Where I had trouble: 
+Where I had trouble: I had trouble getting some other animations from https://freefrontend.com/css-search-boxes/ to work with the code, which was a suggestion from Caitlyn to try. I ended up scrapping the code as it was too complex for our website and I am looking at just using FramerMotion now if I can.
 
-Where I was blocked: 
+Where I was blocked: I was blocked attempting to configure current animations with our CSS for the website. Because of this, I will try to animate some aspects using FramerMotion but if I remain blocked I will clean up other aspects of the website's UI.
 
 #### Plans for next week: 
-- 
+- Attempt to get animations to work. If FramerMotion works well on one or two aspects of the UI, I might try to add if to many others given I have the time and other team members mutually agree on the changes.
 
 ### Aakanksh Yadav
 #### Last Week's Goals:
