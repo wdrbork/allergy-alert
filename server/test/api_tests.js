@@ -1,5 +1,5 @@
 /*
-  Test suite for the Allergy Alert recipes-related routes and database queries.
+  Test suite for recipe-related routes and database queries.
 */
 
 import { expect } from 'chai';
