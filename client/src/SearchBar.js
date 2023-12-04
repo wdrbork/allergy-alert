@@ -28,7 +28,7 @@ function SearchBar({ placeholder, emitSearchIntent }) {
   }
 
   return (
-    <div className="search-bar" style={{ marginLeft: '40px' }}>
+    <div className="search-bar">
       <input
         type="text"
         placeholder={placeholder}

@@ -360,25 +360,14 @@ function App() {
       <header className="App-header">
         <NavBar emitDisplayAllergyListIntent={toggleAllergyList}/>
       </header>
-      <main>
-        <section>
-          <h3>About Allergy Alert</h3>
-          <p>
-            Allergy Alert allows users to quickly find recipes and foods which contain their allergies and which don't,
-            allowing for faster access to appropriate foods to enjoy anytime, anywhere.
-          </p>
-        </section>
-        <section>
-          {
-            allergyDisplay ?
-            <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
-            : null
-          }
-          <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => [fetchRecipe(query), fetchRecipeTotal(query)]} />
-          <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{total}</div>
-          <div style={{whiteSpace: "pre-line", paddingLeft: "2rem"}}>{results}</div>
-        </section>
-      </main>
+      {
+        allergyDisplay ?
+        <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
+        : null
+      }
+      <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => [fetchRecipe(query), fetchRecipeTotal(query)]} />
+      <div className="recipe-output">{total}</div>
+      <div className="recipe-output">{results}</div>
     </div>
   );
 }
