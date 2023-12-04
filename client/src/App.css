@@ -5,11 +5,18 @@
 - Background color: #cee5e7
 */
 
+/* Change selection color for fun */
+
+::selection {
+  background: #A4D4DF;
+}
+
 /* Set a background color and text color for the entire page */
 .html, .body {
   font-family: Helvetica, sans-serif;
   background-color: #FCFCFC;
   color: #171219;
+
 }
 
 /* Style the header with a background color, text color, and text alignment */
@@ -38,7 +45,7 @@ header {
   margin-bottom: auto;
   padding: auto;
   width: 50%;
-  color: #225560;
+  color: #FCFCFC;
   text-align: left;
   font-weight: bold;
   font-size: 200%;
@@ -105,19 +112,55 @@ header {
 }
 
 .allergy-search-bar {
-  width: 94%;
+  display: grid;
+  grid-template-columns: 85% 15%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   border: 1px solid #ababab;
   border-radius: 10px;
   background-color: #f0f0f0;
-  padding: 0.2rem;
+  color: #ababab;
+  text-align: center;
+  outline: none;
+}
+
+.allergy-search-bar input {
   padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  background: none;
+  font-size: 0.8rem;
   color: #ababab;
   outline: none;
 }
 
-.allergy-search-bar:focus {
+.allergy-search-bar input:focus {
   color: #171219;
+}
+
+.allergy-search-bar button {
+  margin: auto;
+  padding-left: 28%;
+  padding-right: 28%;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  background: #f0f0f0;
+  color: #171219;
+  cursor: pointer;
+}
+
+.allergy-search-bar button:hover {
+  background-color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+}
+
+.allergy-search-bar button:active {
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
 }
 
 .allergy-tags-box {
@@ -142,10 +185,13 @@ header {
 
 /* Additional styles for search bars and allergy list table */
 .search-bar {
-  margin: 3%;
+  display: grid;
+  grid-template-columns: 90% 10%;
   margin-top: 1rem;
+  margin-right: auto;
   margin-bottom: 1rem;
-  width: 65%;
+  margin-left: 3%;
+  width: 66%;
   border: 1px solid #ababab;
   border-radius: 10px;
   background-color: #f0f0f0;
@@ -165,18 +211,36 @@ header {
   color: #171219;
 }
 
+.search-bar button {
+  background-color: #f0f0f0;
+  color: #225560;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+}
+
+.search-bar button:active {
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
+}
+
 /* SEARCH RESULTS */
 
 .recipe-output { /* outer box around all recipes */
   margin-left: 3%;
-  width: 70%;
+  width: 66%;
+  border: 1px solid #FCFCFC;
   white-space: pre-line;
 }
 
 .recipe-box { /* first container within recipe-output */
   border: 1px solid #ababab;
   border-radius: 10px;
-  margin-right: 5%;
   margin-bottom: 2%;
   padding: 10px;
   background-color: #f0f0f0;

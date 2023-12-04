@@ -31,15 +31,29 @@ function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent})
     emitDeleteAllergyIntent(allergy);
   }
 
+  // Description: handles button click for allergy add; same as pressing Enter
+  const handleAddAllergyButtonCLick = () => {
+    if (currentAllergy.trim() !== '') {
+      emitAddAllergyIntent(currentAllergy);
+      setCurrentAllergy('');
+    }
+  }
+
   return (
     <div className="allergy-box">
-      <input className="allergy-search-bar"
-        type="text"
-        placeholder="+ Add Allergy"
-        value={currentAllergy}
-        onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
-      />
+      <div className="allergy-search-bar">
+        <input
+          type="text"
+          placeholder="+ Add Allergy"
+          value={currentAllergy}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyPress}
+        />
+
+        <button onClick={handleAddAllergyButtonCLick}>
+          ➕
+        </button>
+      </div>
 
       <div className="allergy-tags-box">
         {allergies ? allergies.map(allergy => (

@@ -27,6 +27,11 @@ function SearchBar({ placeholder, emitSearchIntent }) {
     }
   }
 
+  // Description: handles button click search; same as pressing Enter
+  const handleSearchButtonClick = () => {
+    emitSearchIntent(searchTerm)
+  }
+
   return (
     <div className="search-bar">
       <input
@@ -36,6 +41,10 @@ function SearchBar({ placeholder, emitSearchIntent }) {
         value={searchTerm}
         onChange={handleInputChange}
       />
+
+      <button onClick={handleSearchButtonClick}>
+        ▶
+      </button>
     </div>
   );
 }
