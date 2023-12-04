@@ -19,7 +19,7 @@ dotenv.config()
 const app = express()
 
 let frontend_url = process.env.FRONTEND_URL;
-if (process.env.NODE_ENV.trim() === "testing") {
+if (process.env.NODE_ENV === "testing" || process.env.NODE_ENV === "development") {
     frontend_url = "http://localhost:" + process.env.FRONTEND_PORT;
 }
 
