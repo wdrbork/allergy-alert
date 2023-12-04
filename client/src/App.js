@@ -144,26 +144,32 @@ function App() {
     } else if (ingredientPercentage.length === 0) {
       return (
         <div className="recipe-box">
-          <label className="recipe-label">
-            {"Total recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
+          <label className="recipe-warning-label">
+            Warning: While Allergy Alert provides fair estimates, results may be imperfect.<br/>
+            Always take the precautions necessary for protecting your own health.<br/>
           </label>
+
           <label className="recipe-label">
-            {"\nNone of your allergens were found in these recipes."}
-            <br></br>
+            {"\nTotal recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
+          
+            None of your allergens were found in these recipes.
           </label>
         </div>
       );
     } else {
       return (
         <div className="recipe-box">
-          <label className="recipe-label">
-            {"Total recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
+          <label className="recipe-warning-label">
+            Warning: While Allergy Alert provides fair estimates, results may be imperfect.<br/>
+            Always take the precautions necessary for protecting your own health.<br/>
           </label>
+
           <label className="recipe-label">
-            {"\nThese were the allergies found in recipes for " + query +  " and the percentage of recipes that contain them"}
+            {"\nTotal recipes returned for search " + query + ": " + totalNumberOfRecipe + "\n"}
+          
+            {"The following allergies were found in the recipes for this item:"}
             <br></br>
-          </label>
-          <label className="recipe-content">
+          
             {totalContent}
           </label>
         </div>
@@ -329,20 +335,25 @@ function App() {
       ingredientPercentages.push(`${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%\t${ingredientNames[i]}`)
     }
 
-    const recipeContent = `${recipe["Name"]}:\nIngredient Likelihoods:\n${ingredientPercentages.join("\n")}`;
+    const recipeContent = ingredientPercentages.join("\n");
     
     // check for if one of the allergens was found
     return (
       <div className="recipe-box">
+        <label className="recipe-name">{recipe["Name"]}</label>
+
         <label className="recipe-label">
-          {allergyFound ? "Allergy Alert!\nOne of your allergens has been found in recipes for this item:\n" : 
-            "None of your allergens were found in recipes for this item:\n"}
+          <small>{" (Variations found: " + recipeTotal + ")\n"}</small>
+        
+          {allergyFound ? "Allergy Alert! At least one allergen may be in this item.\n\n" : 
+            "None of your allergens were found in recipes for this item.\n\n"}
+        
+          Ingredient Likelihoods:
         </label>
-        <label className="recipe-label">
-          {"Total recipes: " + recipeTotal + "\n"}
-        </label>
+
+        <br/>
+
         <label className="recipe-content">
-          <br></br>
           {recipeContent}
         </label>
       </div>
