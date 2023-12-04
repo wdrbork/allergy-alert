@@ -18,7 +18,7 @@ import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
-if (process.env.NODE_ENV=== "development") {
+if (window.node_env = process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
   backend_url = "http://localhost:5000";
 }
 
