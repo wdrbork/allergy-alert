@@ -33,22 +33,26 @@ function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent})
 
   return (
     <div className="allergy-box">
-      
-      <div className="allergy-search-bar">
-        <input
-          type="text"
-          placeholder="Add Allergy"
-          value={currentAllergy}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyPress}
-        />
-      </div>
+      <input className="allergy-search-bar"
+        type="text"
+        placeholder="+ Add Allergy"
+        value={currentAllergy}
+        onChange={handleInputChange}
+        onKeyDown={handleKeyPress}
+      />
 
-      <ul>
+      <div className="allergy-tags-box">
         {allergies ? allergies.map(allergy => (
-          <div className="allergy-tag"><p key={allergy}>{allergy + " "}<a href onClick={(env) => deleteAllergy(allergy)}>🞭</a></p></div>
+          <div className="allergy-tag" key={allergy}>
+            
+            <a onClick={(env) => deleteAllergy(allergy)} style={{cursor: "pointer"}}>
+              {allergy + " "}
+              
+              <strong>⨯</strong>
+            </a>
+          </div>
         )) : ""}
-      </ul>
+      </div>
     </div>
   );
 
