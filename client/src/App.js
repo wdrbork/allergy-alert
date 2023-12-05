@@ -16,6 +16,8 @@ import SearchBar from './SearchBar';
 import NavBar from './NavBar';
 import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
+import NumResults from './NumResults';
+import FilterResults from './FilterResults';
 import SearchRecipeLabel from './SearchRecipe';
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
@@ -31,6 +33,8 @@ function App() {
   const isMounted = useRef(true);
   const [allergyDisplay, setAllergyDisplay] = useState(false);
   const [total, setTotal] = useState();
+  const [numResults, setNumResults] = useState("10");  // Initialize with a 10
+  const [filter, setFilterResults] = useState("None");  // Initialize with None
 
   // runs when app component mounted
   useEffect(() => {
@@ -69,31 +73,44 @@ function App() {
       .then((data) => {
         // data is a JSON object with all recipes
         // for the beta, we will display the top 10 results
-        let ten_results = [];
-        let hold_array = [];
+        let results = [];
 
         data["recipes"].forEach((recipe, index) => {
-          if (index >= 10) {
+          if (results.length >= numResults) {
             return;
           }
           
+
           // makes it so the exact match is shown first
           if (recipe.Name.toLowerCase() === query.toLowerCase()) {
-            ten_results.push(<div key={index}>{recipeToString(recipe)}</div>);
+            const recipeObj = recipeToString(recipe);
+            if (filter === "None") {
+              results.unshift(<div key={index}>{recipeObj[0]}</div>);
+            } else if (filter === "Show results with allergens" && recipeObj[1]) {
+              results.unshift(<div key={index}>{recipeObj[0]}</div>);
+            } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+              results.unshift(<div key={index}>{recipeObj[0]}</div>);
+            } 
           } else {
-            hold_array.push(<div key={index}>{recipeToString(recipe)}</div>)
+            const recipeObj = recipeToString(recipe);
+            if (filter === "None") {
+              results.push(<div key={index}>{recipeObj[0]}</div>);
+            } else if (filter === "Show results with allergens" && recipeObj[1]) {
+              results.push(<div key={index}>{recipeObj[0]}</div>);
+            } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+              results.push(<div key={index}>{recipeObj[0]}</div>);
+            } 
           }
         });
-        let result = ten_results.concat(hold_array);
         
         // check for any results
-        if (result.length === 0) {
+        if (results.length === 0) {
           setResults("No recipes in our database match your search");
         } else {        // check for any results
-        if (result.length === 0) {
+        if (results.length === 0) {
           setResults([<div key={0}>No recipes in our database match your search</div>]);
         } else {
-            setResults(result);
+            setResults(results);
         }
         }
       })
@@ -339,7 +356,7 @@ function App() {
     const recipeContent = ingredientPercentages.join("\n");
     
     // check for if one of the allergens was found
-    return (
+    return [(
       <div className="recipe-box">
         <label className="recipe-name">{recipe["Name"]}</label>
 
@@ -358,7 +375,8 @@ function App() {
           {recipeContent}
         </label>
       </div>
-    );
+    ),
+    allergyFound];
   }
 
   // Description: toggles the allergy list display
@@ -388,6 +406,8 @@ function App() {
         allergies={allergies}
         emitSearchIntent={(query) => [fetchRecipe(query), fetchRecipeTotal(query)]}
       />
+      <NumResults selectedValue={numResults} emitChangeNumResultsIntent={(value) => setNumResults(value)}/>
+      <FilterResults selectedValue={filter} emitChangeFilterIntent={(value) => setFilterResults(value)}/>
       <div className="recipe-output">{total}</div>
       <div className="recipe-output">{results}</div>
     </div>
