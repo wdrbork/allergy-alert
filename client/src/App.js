@@ -19,6 +19,7 @@ import DOMPurify from "dompurify";
 import NumResults from './NumResults';
 import FilterResults from './FilterResults';
 import SearchRecipeLabel from './SearchRecipe';
+import Highlighter from "react-highlight-words";
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
 if (process.env.NODE_ENV === "development") {
@@ -372,7 +373,12 @@ function App() {
         <br/>
 
         <label className="recipe-content">
-          {recipeContent}
+          <Highlighter
+            highlightClassName="YourHighlightClass"
+            searchWords={allergies}
+            autoEscape={true}
+            textToHighlight= {recipeContent}
+          />
         </label>
       </div>
     ),
