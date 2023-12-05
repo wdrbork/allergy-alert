@@ -44,14 +44,14 @@ function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent})
       <div className="allergy-search-bar">
         <input
           type="text"
-          placeholder="+ Add Allergy"
+          placeholder="Add Allergy"
           value={currentAllergy}
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
 
         <button onClick={handleAddAllergyButtonCLick}>
-          ➕
+          <span style={{ fontWeight: 'bold' }}>{'\uFF0B'}</span>
         </button>
       </div>
 
@@ -69,7 +69,6 @@ function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent})
       </div>
     </div>
   );
-
   
 }
 

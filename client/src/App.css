@@ -29,6 +29,7 @@ header {
   border-radius: 0px 0px 10px 10px;
   text-align: center;
   background-color: #00B9AE;
+  z-Index: 2;
 }
 
 .nav-bar {
@@ -39,7 +40,7 @@ header {
   grid-template-columns: 70% 15% 15% 0%; /* 0% column is for toastify container */
 }
 
-/* LOGO */
+/* Logo */
 
 .logo-text {
   margin-bottom: auto;
@@ -51,7 +52,7 @@ header {
   font-size: 200%;
 }
 
-/* NAVBAR LABELS */
+/* NavBar Labels */
 
 .navbar-label-box {
   margin: auto;
@@ -72,7 +73,7 @@ header {
   text-decoration: underline;
 }
 
-/* MANAGE ALLERGIES */
+/* Manage Allergies Pop-up */
 
 .allergy-list-toggle {
   margin: auto;
@@ -97,9 +98,10 @@ header {
   text-decoration: underline;
 }
 
-/* ALLERGY LIST */
+/* Allergy List */
 
 .allergy-box {
+  z-index: 1;
   position: fixed;
   padding: 1rem;
   top: 6rem;
@@ -167,12 +169,13 @@ header {
   display: flex;
   flex-wrap: wrap;
   padding-top: 1rem;
+  margin-bottom: 13.3px;
 }
 
 .allergy-tag {
   margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
+  margin-bottom: 0.15rem;
+  padding: 0.4rem;
   width: auto;
   height: auto;
   border: solid;
@@ -183,7 +186,7 @@ header {
   margin: 0.5rem;
 }
 
-/* Additional styles for search bars and allergy list table */
+/* Recipe Search Bar */
 .search-bar {
   display: grid;
   grid-template-columns: 90% 10%;
@@ -229,16 +232,27 @@ header {
   border: 1px solid #d3d3d3;
 }
 
-/* SEARCH RESULTS */
+/* Label above Search Bar */
+.search-recipe-label {
+  margin-left: 3%;
+  padding-left: 1px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #225560;
+}
 
-.recipe-output { /* outer box around all recipes */
+/* Search Results */
+
+/* outer box around all recipes */
+.recipe-output {
   margin-left: 3%;
   width: 66%;
   border: 1px solid #FCFCFC;
   white-space: pre-line;
 }
 
-.recipe-box { /* first container within recipe-output */
+/* first container within recipe-output */
+.recipe-box {
   border: 1px solid #ababab;
   border-radius: 10px;
   margin-bottom: 2%;

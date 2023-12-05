@@ -16,9 +16,10 @@ import SearchBar from './SearchBar';
 import NavBar from './NavBar';
 import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
+import SearchRecipeLabel from './SearchRecipe';
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
-if (process.env.NODE_ENV=== "development") {
+if (process.env.NODE_ENV === "development") {
   backend_url = "http://localhost:5000";
 }
 
@@ -365,7 +366,6 @@ function App() {
     setAllergyDisplay(!allergyDisplay)
   }
 
-  
   return (
     <div className="App" data-testid="app-instance">
       <header className="App-header">
@@ -373,10 +373,21 @@ function App() {
       </header>
       {
         allergyDisplay ?
-        <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
-        : null
+        (
+          <AllergyList
+            allergies={allergies}
+            emitAddAllergyIntent={(allergy) => addAllergy(allergy)}
+            emitDeleteAllergyIntent={(allergy) => deleteAllergy(allergy)}
+          />
+        ) : null
       }
-      <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => [fetchRecipe(query), fetchRecipeTotal(query)]} />
+      <br></br>
+      <SearchRecipeLabel/>
+      <SearchBar
+        placeholder="🔍 Recipe"
+        allergies={allergies}
+        emitSearchIntent={(query) => [fetchRecipe(query), fetchRecipeTotal(query)]}
+      />
       <div className="recipe-output">{total}</div>
       <div className="recipe-output">{results}</div>
     </div>

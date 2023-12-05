@@ -32,6 +32,7 @@ function SearchBar({emitDisplayAllergyListIntent}) {
         onClick={handleDisplayToggle}/>
 
       <ToastContainer
+        position='bottom-right'
         autoClose={6500}
         closeOnClick
         pauseOnFocusLoss={false}
