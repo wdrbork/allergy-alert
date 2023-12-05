@@ -18,9 +18,10 @@ import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
 import NumResults from './NumResults';
 import FilterResults from './FilterResults';
+import SearchRecipeLabel from './SearchRecipe';
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
-if (window.node_env = process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
+if (process.env.NODE_ENV === "development") {
   backend_url = "http://localhost:5000";
 }
 
@@ -383,7 +384,6 @@ function App() {
     setAllergyDisplay(!allergyDisplay)
   }
 
-  
   return (
     <div className="App" data-testid="app-instance">
       <header className="App-header">
@@ -391,10 +391,21 @@ function App() {
       </header>
       {
         allergyDisplay ?
-        <AllergyList allergies={allergies} emitAddAllergyIntent={allergy => addAllergy(allergy)} emitDeleteAllergyIntent={allergy => deleteAllergy(allergy)}/>
-        : null
+        (
+          <AllergyList
+            allergies={allergies}
+            emitAddAllergyIntent={(allergy) => addAllergy(allergy)}
+            emitDeleteAllergyIntent={(allergy) => deleteAllergy(allergy)}
+          />
+        ) : null
       }
-      <SearchBar placeholder="🔍 Recipe" allergies={allergies} emitSearchIntent={query => [fetchRecipe(query), fetchRecipeTotal(query)]} />
+      <br></br>
+      <SearchRecipeLabel/>
+      <SearchBar
+        placeholder="🔍 Recipe"
+        allergies={allergies}
+        emitSearchIntent={(query) => [fetchRecipe(query), fetchRecipeTotal(query)]}
+      />
       <NumResults selectedValue={numResults} emitChangeNumResultsIntent={(value) => setNumResults(value)}/>
       <FilterResults selectedValue={filter} emitChangeFilterIntent={(value) => setFilterResults(value)}/>
       <div className="recipe-output">{total}</div>

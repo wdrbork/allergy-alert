@@ -123,18 +123,18 @@ Where I was blocked: Currently working on the routes that add/remove allergens f
 - Draw out more designs and help team members with other issues if they arise.
 
 #### Progress and Issues:
-What I did: 
+What I did: I drew out around 5 more designs and worked with Aakanksh on CSS ideas and concepts.
 
-What worked: 
+What worked: Collaboration went well, and team members appreciated the new ideas and suggestions.
 
-What I learned: 
+What I learned: I learned that too much creative deviation from the central concept we had from the beginning was under-appreciated.
 
-Where I had trouble: 
+Where I had trouble: I didn't have much trouble.
 
-Where I was blocked: 
+Where I was blocked: I wasn't blocked this week.
 
 #### Plans for next week: 
-- 
+- Draw out more designs (draw some final designs for website), get into animations potentially.
 
 ### Aakanksh Yadav
 #### Last Week's Goals:

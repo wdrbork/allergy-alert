@@ -5,11 +5,18 @@
 - Background color: #cee5e7
 */
 
+/* Change selection color for fun */
+
+::selection {
+  background: #A4D4DF;
+}
+
 /* Set a background color and text color for the entire page */
 .html, .body {
   font-family: Helvetica, sans-serif;
   background-color: #FCFCFC;
   color: #171219;
+
 }
 
 /* Style the header with a background color, text color, and text alignment */
@@ -22,6 +29,7 @@ header {
   border-radius: 0px 0px 10px 10px;
   text-align: center;
   background-color: #00B9AE;
+  z-Index: 2;
 }
 
 .nav-bar {
@@ -32,19 +40,19 @@ header {
   grid-template-columns: 70% 15% 15% 0%; /* 0% column is for toastify container */
 }
 
-/* LOGO */
+/* Logo */
 
 .logo-text {
   margin-bottom: auto;
   padding: auto;
   width: 50%;
-  color: #225560;
+  color: #FCFCFC;
   text-align: left;
   font-weight: bold;
   font-size: 200%;
 }
 
-/* NAVBAR LABELS */
+/* NavBar Labels */
 
 .navbar-label-box {
   margin: auto;
@@ -65,7 +73,7 @@ header {
   text-decoration: underline;
 }
 
-/* MANAGE ALLERGIES */
+/* Manage Allergies Pop-up */
 
 .allergy-list-toggle {
   margin: auto;
@@ -90,9 +98,10 @@ header {
   text-decoration: underline;
 }
 
-/* ALLERGY LIST */
+/* Allergy List */
 
 .allergy-box {
+  z-index: 1;
   position: fixed;
   padding: 1rem;
   top: 6rem;
@@ -105,31 +114,68 @@ header {
 }
 
 .allergy-search-bar {
-  width: 94%;
+  display: grid;
+  grid-template-columns: 85% 15%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   border: 1px solid #ababab;
   border-radius: 10px;
   background-color: #f0f0f0;
-  padding: 0.2rem;
+  color: #ababab;
+  text-align: center;
+  outline: none;
+}
+
+.allergy-search-bar input {
   padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  background: none;
+  font-size: 0.8rem;
   color: #ababab;
   outline: none;
 }
 
-.allergy-search-bar:focus {
+.allergy-search-bar input:focus {
   color: #171219;
+}
+
+.allergy-search-bar button {
+  margin: auto;
+  padding-left: 28%;
+  padding-right: 28%;
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  background: #f0f0f0;
+  color: #171219;
+  cursor: pointer;
+}
+
+.allergy-search-bar button:hover {
+  background-color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+}
+
+.allergy-search-bar button:active {
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
 }
 
 .allergy-tags-box {
   display: flex;
   flex-wrap: wrap;
   padding-top: 1rem;
+  margin-bottom: 13.3px;
 }
 
 .allergy-tag {
   margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
+  margin-bottom: 0.15rem;
+  padding: 0.4rem;
   width: auto;
   height: auto;
   border: solid;
@@ -140,12 +186,15 @@ header {
   margin: 0.5rem;
 }
 
-/* Additional styles for search bars and allergy list table */
+/* Recipe Search Bar */
 .search-bar {
-  margin: 3%;
+  display: grid;
+  grid-template-columns: 90% 10%;
   margin-top: 1rem;
+  margin-right: auto;
   margin-bottom: 1rem;
-  width: 65%;
+  margin-left: 3%;
+  width: 66%;
   border: 1px solid #ababab;
   border-radius: 10px;
   background-color: #f0f0f0;
@@ -165,18 +214,47 @@ header {
   color: #171219;
 }
 
-/* SEARCH RESULTS */
+.search-bar button {
+  background-color: #f0f0f0;
+  color: #225560;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
-.recipe-output { /* outer box around all recipes */
+.search-bar button:hover {
+  background-color: #e3e3e3;
+  border: 1px solid #e3e3e3;
+}
+
+.search-bar button:active {
+  background-color: #d3d3d3;
+  border: 1px solid #d3d3d3;
+}
+
+/* Label above Search Bar */
+.search-recipe-label {
   margin-left: 3%;
-  width: 70%;
+  padding-left: 1px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #225560;
+}
+
+/* Search Results */
+
+/* outer box around all recipes */
+.recipe-output {
+  margin-left: 3%;
+  width: 66%;
+  border: 1px solid #FCFCFC;
   white-space: pre-line;
 }
 
-.recipe-box { /* first container within recipe-output */
+/* first container within recipe-output */
+.recipe-box {
   border: 1px solid #ababab;
   border-radius: 10px;
-  margin-right: 5%;
   margin-bottom: 2%;
   padding: 10px;
   background-color: #f0f0f0;

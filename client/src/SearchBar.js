@@ -2,15 +2,26 @@
   Component responsible for rendering the search bar in the Allergy Alert application.
  
   Description:
-  This component represents the search bar in the Allergy Alert application's user interface.
+  This component represents the animted search bar in the Allergy Alert application's user interface.
   It allows users to input recipe names for searching and triggers the search intent when the "Enter" key is pressed.
   The component communicates with the parent component (App.js) by emitting the user's search intent.
 */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 function SearchBar({ placeholder, emitSearchIntent }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [animationTriggeredBefore, setAnimationTriggered] = useState(false);
+  
+  // runs when app component mounted
+  useEffect(() => {
+    if (animationTriggeredBefore === false) {
+      setAnimationTriggered(true);
+      // Store in localStorage to persist across page reloads
+      localStorage.setItem('animationTriggeredBefore', 'true');
+    }
+  }, [animationTriggeredBefore]);
 
   // Parameter: e - captured key event
   // Description: updates state.searchTerm with text box value
@@ -27,8 +38,26 @@ function SearchBar({ placeholder, emitSearchIntent }) {
     }
   }
 
+  // Description: handles button click search; same as pressing Enter
+  const handleSearchButtonClick = () => {
+    emitSearchIntent(searchTerm)
+  }
+
+  // Variants used in animation
+  const variants = {
+    hidden: { x: '-100%', pointerEvents: 'none' },
+    visible: { x: '0%', pointerEvents: 'auto' },
+  };
+
   return (
-    <div className="search-bar">
+    <motion.div
+      className="search-bar"
+      key={animationTriggeredBefore}
+      initial="hidden"
+      animate={animationTriggeredBefore ? 'visible' : 'hidden'}
+      variants={variants}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+    >
       <input
         type="text"
         placeholder={placeholder}
@@ -36,8 +65,9 @@ function SearchBar({ placeholder, emitSearchIntent }) {
         value={searchTerm}
         onChange={handleInputChange}
       />
-    </div>
+      <button onClick={handleSearchButtonClick}>▶</button>
+    </motion.div>
   );
-}
+}    
 
 export default SearchBar;
