@@ -16,8 +16,7 @@ import SearchBar from './SearchBar';
 import NavBar from './NavBar';
 import AllergyList from './AllergyList';
 import DOMPurify from "dompurify";
-import NumResults from './NumResults';
-import FilterResults from './FilterResults';
+import FilterDropdowns from './FilterDropdowns';
 import SearchRecipeLabel from './SearchRecipe';
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
@@ -101,9 +100,9 @@ function App() {
             const recipeObj = recipeToString(recipe);
             if (filter === "None") {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "Show results with allergens" && recipeObj[1]) {
+            } else if (filter === "with" && recipeObj[1]) {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+            } else if (filter === "without" && !recipeObj[1]) {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
             }
           }
@@ -116,7 +115,7 @@ function App() {
         if (results.length === 0) {
           setResults([<div key={0}>No recipes in our database match your search</div>]);
         } else {
-            setResults(results);
+          setResults(results);
         }
         }
       })
@@ -345,6 +344,7 @@ function App() {
 
     // Evaluate occurrence % for each ingredient; store as strings
     const ingredientPercentages = []
+    
     const frontName = [];
     const backName = [];
     const frontCount = [];
@@ -394,7 +394,9 @@ function App() {
 
         <br/>
 
-        <label className="recipe-content">{recipeContent}</label>
+        <label className="recipe-content">
+          {recipeContent}
+        </label>
       </div>
     ),
     allergyFound];
@@ -414,11 +416,20 @@ function App() {
         allergyDisplay ?
         (
           <AllergyList
+            isListVisible={!allergyDisplay}
             allergies={allergies}
             emitAddAllergyIntent={(allergy) => addAllergy(allergy)}
             emitDeleteAllergyIntent={(allergy) => deleteAllergy(allergy)}
           />
-        ) : null
+        ) : 
+        (
+          <AllergyList
+            isListVisible={!allergyDisplay}
+            allergies={allergies}
+            emitAddAllergyIntent={(allergy) => addAllergy(allergy)}
+            emitDeleteAllergyIntent={(allergy) => deleteAllergy(allergy)}
+          />
+        )
       }
       <br></br>
       <SearchRecipeLabel/>
@@ -427,10 +438,20 @@ function App() {
         allergies={allergies}
         emitSearchIntent={(query) => [fetchRecipe(query), fetchRecipeTotal(query)]}
       />
-      <NumResults selectedValue={numResults} emitChangeNumResultsIntent={(value) => setNumResults(value)}/>
-      <FilterResults selectedValue={filter} emitChangeFilterIntent={(value) => setFilterResults(value)}/>
-      <div className="recipe-output">{total}</div>
-      <div className="recipe-output">{results}</div>
+      <FilterDropdowns
+        filterValue={filter}
+        emitChangeFilterIntent={(value) => setFilterResults(value)}
+        numResultValue={numResults}
+        emitChangeNumResultsIntent={(value) => setNumResults(value)}/>
+
+      {total ? (
+        <div className="recipe-output">{total}</div>
+      ) : null}
+
+      {results ? (
+        <div className="recipe-output">{results}</div>
+      ) : null}
+      
     </div>
   );
 }

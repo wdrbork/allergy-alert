@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 function FilterDropdowns({ filterValue, emitChangeFilterIntent, numResultValue, emitChangeNumResultsIntent }) {
+  const [animationTriggeredBefore, setAnimationTriggered] = useState(false);
+
+  // runs when app component mounted
+  useEffect(() => {
+    if (animationTriggeredBefore === false) {
+      setAnimationTriggered(true);
+      // Store in localStorage to persist across page reloads
+      localStorage.setItem('animationTriggeredBefore', 'true');
+    }
+  }, [animationTriggeredBefore]);
+
   // Description: Emits the user's intent to change num results
   const handleNumResultsChange = (event) => {
     const newValue = event.target.value;
@@ -13,8 +25,21 @@ function FilterDropdowns({ filterValue, emitChangeFilterIntent, numResultValue, 
     emitChangeFilterIntent(newValue);
   };
 
+  // Variants used in animation
+  const variants = {
+    hidden: { x: '-100%', pointerEvents: 'none' },
+    visible: { x: '0%', pointerEvents: 'auto' },
+  };
+
   return (
-    <div className="filter-dropdowns-box">
+    <motion.div
+      className="filter-dropdowns-box"
+      key={animationTriggeredBefore}
+      initial="hidden"
+      animate={animationTriggeredBefore ? 'visible' : 'hidden'}
+      variants={variants}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+    >
       <div className="results-box">
         <label className="results-label">Results:</label>
         <select
@@ -41,7 +66,7 @@ function FilterDropdowns({ filterValue, emitChangeFilterIntent, numResultValue, 
           <option value="without">Results without allergens</option>
         </select>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
