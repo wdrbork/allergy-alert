@@ -82,7 +82,11 @@ Then doing either of the following:
 |&emsp;|&emsp;|-- index.js  
 |&emsp;|&emsp;\`-- server.js  
 |&emsp;|-- **test**: Contains testing code for the backend  
-|&emsp;|&emsp;\`-- api_tests.js  
+|&emsp;|&emsp;\`-- api_tests.js
+|&emsp;|-- **Data**: Contains the data parsing code and dataset
+|&emsp;|&emsp;\`-- 10000Recipe.json
+|&emsp;|&emsp;\`-- InsertDatabase.py
+|&emsp;|&emsp;\`-- ParseData.py  
 |&emsp;|-- .env  
 |&emsp;|-- package-lock.json  
 |&emsp;\`-- package.json  
@@ -121,5 +125,22 @@ Use descriptive test names and group similar tests under a describe() function.
 Use this link as a reference for writing mocha tests: https://www.browserstack.com/guide/unit-testing-for-nodejs-using-mocha-and-chai  
 
 
-For additional information on frontend installation, buildling, and testing navigate to: For additional information for frontend installation, refer to https://github.com/wdrbork/allergy-alert/blob/main/client/README.md#getting-started-with-create-react-app  
+For additional information on frontend installation, buildling, and testing navigate to: For additional information for frontend installation, refer to https://github.com/wdrbork/allergy-alert/blob/main/client/README.md#getting-started-with-create-react-app
+
+### How to Connect and insert into MongoDB
+1. Create an account on MongoDB
+2. Ask person who is managing the database to invite you to the project
+3. Once in the project go to the security tab and click on Database access
+4. Click add new database user and create a username and password, select your role, and options
+5. When you click add user go back to the database tab under Deployment and click connect
+6. Click the driver option and follow instruction to install mongodb
+7. On the third step copy the string provided and fill in the username and password placeholder in the string with the user you created before
+8. Take that string go into InsertDatabase.py and paste the string into "Insert DBString here"
+9. Running that python file will insert whatever json it is given into the database
+
+### How to run parse data code
+1. Go to https://www.kaggle.com/datasets/paultimothymooney/recipenlg and download the dataset
+2. Put the downloaded csv into the data folder
+3. Run the python file which should output a json file which is the correct format to insert into database
+4. To change the amount of recipe returned from code go to commented area and change those numbers
 

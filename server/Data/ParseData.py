@@ -4,6 +4,8 @@ import json
 path = "server\Data\RecipeNLG_dataset.csv"
 df = pd.read_csv(path)
 df.drop(['ingredients', 'directions', 'link', 'source'], axis=1)
+
+#Change the number here for how many recipe you want (IE [0:10000] is 10000 recipes)
 df = df[0:10000]
 
 dct = {}
