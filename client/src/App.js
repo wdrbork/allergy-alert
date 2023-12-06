@@ -19,6 +19,7 @@ import DOMPurify from "dompurify";
 import NumResults from './NumResults';
 import FilterResults from './FilterResults';
 import SearchRecipeLabel from './SearchRecipe';
+import Highlighter from "react-highlight-words";
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
 if (process.env.NODE_ENV === "development") {
@@ -76,13 +77,28 @@ function App() {
         let results = [];
 
         data["recipes"].forEach((recipe, index) => {
-          if (results.length >= numResults) {
-            return;
-          }
-          
-
-          // makes it so the exact match is shown first
-          if (recipe.Name.toLowerCase() === query.toLowerCase()) {
+          if (results.length < numResults || numResults === "Max") {
+            // makes it so the exact match is shown first
+            if (recipe.Name.toLowerCase() === query.toLowerCase()) {
+              const recipeObj = recipeToString(recipe);
+              if (filter === "None") {
+                results.unshift(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results with allergens" && recipeObj[1]) {
+                results.unshift(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+                results.unshift(<div key={index}>{recipeObj[0]}</div>);
+              } 
+            } else {
+              const recipeObj = recipeToString(recipe);
+              if (filter === "None") {
+                results.push(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results with allergens" && recipeObj[1]) {
+                results.push(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+                results.push(<div key={index}>{recipeObj[0]}</div>);
+              } 
+            }
+          } else if (recipe.Name.toLowerCase() === query.toLowerCase()) {
             const recipeObj = recipeToString(recipe);
             if (filter === "None") {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
@@ -90,16 +106,7 @@ function App() {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
             } else if (filter === "Show results without allergens" && !recipeObj[1]) {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
-            } 
-          } else {
-            const recipeObj = recipeToString(recipe);
-            if (filter === "None") {
-              results.push(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "Show results with allergens" && recipeObj[1]) {
-              results.push(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "Show results without allergens" && !recipeObj[1]) {
-              results.push(<div key={index}>{recipeObj[0]}</div>);
-            } 
+            }
           }
         });
         
@@ -339,18 +346,35 @@ function App() {
 
     // Evaluate occurrence % for each ingredient; store as strings
     const ingredientPercentages = []
+    const frontName = [];
+    const backName = [];
+    const frontCount = [];
+    const backCount = [];
+
+    for (let i = 0; i < ingredientNames.length; i++) {
+      if (ingredientIsAllergy(ingredientNames[i], allergies)) {
+        frontName.push(ingredientNames[i]);
+        frontCount.push(ingredientCounts[i]);
+      } else {
+        backName.push(ingredientNames[i]);
+        backCount.push(ingredientCounts[i]);
+      }
+    }
+
+    const sortedIngredName = frontName.concat(backName);
+    const sortedIngredCount = frontCount.concat(backCount);
 
     // allergy found flag
     let allergyFound = false;
 
-    for (let i = 0; i < ingredientNames.length; i++) {
+    for (let i = 0; i < sortedIngredName.length; i++) {
       if (allergyFound === false && 
-          ingredientIsAllergy(ingredientNames[i], allergies))
+          ingredientIsAllergy(sortedIngredName[i], allergies))
       {
         allergyFound = true;
       }
 
-      ingredientPercentages.push(`${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%\t${ingredientNames[i]}`)
+      ingredientPercentages.push(`${((sortedIngredCount[i] / recipeTotal) * 100).toFixed(1)}%\t${sortedIngredName[i]}`)
     }
 
     const recipeContent = ingredientPercentages.join("\n");
@@ -371,9 +395,7 @@ function App() {
 
         <br/>
 
-        <label className="recipe-content">
-          {recipeContent}
-        </label>
+        <label className="recipe-content">{recipeContent}</label>
       </div>
     ),
     allergyFound];
