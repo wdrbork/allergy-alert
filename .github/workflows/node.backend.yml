@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     strategy:
       matrix:
@@ -19,6 +19,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+          
       - name: Checkout code
         uses: actions/checkout@v3 #actions/checkout@v2
 
@@ -41,6 +42,9 @@ jobs:
 
       - name: Run server tests
         working-directory: ./server
+        env:
+          ALLERGYALERT_DB_URI: ${{ secrets.ALLERGYALERT_DB_URI }}
+          ALLERGYALERT_NS: ${{ secrets.ALLERGYALERT_NS }}
         run: npm test
 
       # for client

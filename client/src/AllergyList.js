@@ -74,7 +74,7 @@ function AllergyList({isListVisible, allergies, emitAddAllergyIntent, emitDelete
         {allergies ? allergies.map(allergy => (
           <div className="allergy-tag" key={allergy}>
             
-            <a onClick={(env) => deleteAllergy(allergy)} style={{cursor: "pointer"}}>
+            <a href="/"onClick={(env) => deleteAllergy(allergy)} style={{cursor: "pointer"}}>
               {allergy + " "}
               
               <strong>⨯</strong>
