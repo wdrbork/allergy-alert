@@ -81,18 +81,18 @@ function App() {
               const recipeObj = recipeToString(recipe);
               if (filter === "None") {
                 results.unshift(<div key={index}>{recipeObj[0]}</div>);
-              } else if (filter === "Show results with allergens" && recipeObj[1]) {
+              } else if (filter === "Results with allergens" && recipeObj[1]) {
                 results.unshift(<div key={index}>{recipeObj[0]}</div>);
-              } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+              } else if (filter === "Results without allergens" && !recipeObj[1]) {
                 results.unshift(<div key={index}>{recipeObj[0]}</div>);
               } 
             } else {
               const recipeObj = recipeToString(recipe);
               if (filter === "None") {
                 results.push(<div key={index}>{recipeObj[0]}</div>);
-              } else if (filter === "Show results with allergens" && recipeObj[1]) {
+              } else if (filter === "Results with allergens" && recipeObj[1]) {
                 results.push(<div key={index}>{recipeObj[0]}</div>);
-              } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+              } else if (filter === "Results without allergens" && !recipeObj[1]) {
                 results.push(<div key={index}>{recipeObj[0]}</div>);
               } 
             }
@@ -100,9 +100,9 @@ function App() {
             const recipeObj = recipeToString(recipe);
             if (filter === "None") {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "with" && recipeObj[1]) {
+            } else if (filter === "Results without allergens" && recipeObj[1]) {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "without" && !recipeObj[1]) {
+            } else if (filter === "Results without allergens" && !recipeObj[1]) {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
             }
           }
