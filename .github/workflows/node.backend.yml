@@ -44,6 +44,7 @@ jobs:
         working-directory: ./server
         env:
           ALLERGYALERT_DB_URI: ${{ secrets.ALLERGYALERT_DB_URI }}
+          ALLERGYALERT_NS: ${{ secrets.ALLERGYALERT_NS }}
         run: npm test
 
       # for client
