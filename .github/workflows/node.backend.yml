@@ -8,8 +8,6 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
-  
 
 jobs:
   build:
@@ -21,6 +19,10 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - name: Establish .env variables
+        env:
+          ALLERGYALERT_DB_URI: ${{ secrets.ALLERGYALERT_DB_URI }}
+          
       - name: Checkout code
         uses: actions/checkout@v3 #actions/checkout@v2
 
