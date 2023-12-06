@@ -62,8 +62,8 @@ function FilterDropdowns({ filterValue, emitChangeFilterIntent, numResultValue, 
           onChange={handleFilterChange}
         >
           <option value="None">None</option>
-          <option value="with">Results with allergens</option>
-          <option value="without">Results without allergens</option>
+          <option value="Results with allergens">Results with allergens</option>
+          <option value="Results without allergens">Results without allergens</option>
         </select>
       </div>
     </motion.div>
