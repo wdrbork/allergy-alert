@@ -346,18 +346,35 @@ function App() {
 
     // Evaluate occurrence % for each ingredient; store as strings
     const ingredientPercentages = []
+    const frontName = [];
+    const backName = [];
+    const frontCount = [];
+    const backCount = [];
+
+    for (let i = 0; i < ingredientNames.length; i++) {
+      if (ingredientIsAllergy(ingredientNames[i], allergies)) {
+        frontName.push(ingredientNames[i]);
+        frontCount.push(ingredientCounts[i]);
+      } else {
+        backName.push(ingredientNames[i]);
+        backCount.push(ingredientCounts[i]);
+      }
+    }
+
+    const sortedIngredName = frontName.concat(backName);
+    const sortedIngredCount = frontCount.concat(backCount);
 
     // allergy found flag
     let allergyFound = false;
 
-    for (let i = 0; i < ingredientNames.length; i++) {
+    for (let i = 0; i < sortedIngredName.length; i++) {
       if (allergyFound === false && 
-          ingredientIsAllergy(ingredientNames[i], allergies))
+          ingredientIsAllergy(sortedIngredName[i], allergies))
       {
         allergyFound = true;
       }
 
-      ingredientPercentages.push(`${((ingredientCounts[i] / recipeTotal) * 100).toFixed(1)}%\t${ingredientNames[i]}`)
+      ingredientPercentages.push(`${((sortedIngredCount[i] / recipeTotal) * 100).toFixed(1)}%\t${sortedIngredName[i]}`)
     }
 
     const recipeContent = ingredientPercentages.join("\n");
@@ -378,14 +395,7 @@ function App() {
 
         <br/>
 
-        <label className="recipe-content">
-          <Highlighter
-            highlightClassName="YourHighlightClass"
-            searchWords={allergies}
-            autoEscape={true}
-            textToHighlight= {recipeContent}
-          />
-        </label>
+        <label className="recipe-content">{recipeContent}</label>
       </div>
     ),
     allergyFound];
