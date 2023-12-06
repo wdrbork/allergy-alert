@@ -1,12 +1,12 @@
 # Allergy Alert
-**Version ID:** v1.0.1  
+**Version ID:** v2.0.0  
 
 **Idea and Goals:** Allergy Alert is a web application designed to help users identify the percentage chance that a particular allergen or set of allergens are in a particular food. This percentage should be based on as many recipes as possible, and we plan on using as many as 2 million recipes in order to produce accurate results for different queries.
 
 ## User Manual
 
 ### High Level Description of Features and Functionality
-Allergy Alert allows users to search for a food item to see how common certain ingredients are in recipes for that item to determine the likelihood that certain ingredients are in a food item. The app will display information for recipes that match the users search and the percentage of those recipes that contain different ingredients. Users can also input there allergies to the website and on search of a food item, the website will display an alert if one of their allergens is contained in recipes for that food item.
+Allergy Alert allows users to search for a food item to see how common certain ingredients are in recipes for that item to determine the likelihood that certain ingredients are in a food item. The app will display information for recipes that match the users search and the percentage of those recipes that contain different ingredients. Users can also input there allergies to the website and on search of a food item, the website will display an alert if one of their allergens is contained in recipes for that food item. Users can filter the results based on if allergies are in the recipes are not.
 
 ### How to Access and Run the Software
 1. Open your favorite web browser
@@ -14,7 +14,7 @@ Allergy Alert allows users to search for a food item to see how common certain i
 3. Explore Allergy Alert
 
 ### How to Use the Software
-Simply type allergies into the allergies bar, press enter to submit. To delete an allergy click the "X" next to the allergy under the allergy list section. Type the recipe you want to search for into the recipe serach bar and hit enter to submit. If recipies from our database match the search then those recipes will appear, along with the ingredients in the recipe and the percent of the recipes for that item in our database that use that ingredient.
+Manange your allergies by going to "Manage Allergies". Simply type allergies into the allergies bar, press enter to submit. To delete an allergy click the "X" next to the allergy under the allergy list section. Type the recipe you want to search for into the recipe serach bar and hit enter to submit. If recipies from our database match the search then those recipes will appear, along with the ingredients in the recipe and the percent of the recipes for that item in our database that use that ingredient and a summery of all the results from our database that match your search!
 
 ### How to Report a Bug
 Submit a bug using the "Issues" section on our project's Github: https://github.com/wdrbork/allergy-alert
@@ -26,8 +26,10 @@ Refer to this bug reporting template: https://gist.github.com/czottmann/3402842
 Refer to this document for additional information on bug reporting practices: https://github.com/brycelelbach/cpp_bug_reporting_guidelines  
 
 ### Known Bugs
-1. If certain ingredients have allergies, the website will not display those allergies since they are deeper down
+- If certain ingredients have allergies, the website will not display those allergies since they are deeper down
 than our priorities for the project thus far.
+- There is no recursive checking for if allergens are contained within ingredients for recipes.
+- Checking for plurals vs singular between allergens and ingredients only works if the only difference is an "s".
   
   
 ## Developer Manual
