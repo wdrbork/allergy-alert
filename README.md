@@ -69,6 +69,10 @@ Then doing either of the following:
 |&emsp;|-- oct18.md  
 |&emsp;\`-- oct25.md  
 |-- **server**: Contains backend code related to the server and the database  
+|&emsp;|-- **Data**: Contains the data parsing code and dataset  
+|&emsp;|&emsp;|-- 10000Recipe.json  
+|&emsp;|&emsp;|-- InsertDatabase.py  
+|&emsp;|&emsp;\`-- ParseData.py    
 |&emsp;|-- **src**: Holds the actual source code for the backend  
 |&emsp;|&emsp;|-- **api**: Contains functions for different API calls that might be made by a client  
 |&emsp;|&emsp;|&emsp;|-- accounts.controller.js  
@@ -83,10 +87,6 @@ Then doing either of the following:
 |&emsp;|&emsp;\`-- server.js  
 |&emsp;|-- **test**: Contains testing code for the backend  
 |&emsp;|&emsp;\`-- api_tests.js
-|&emsp;|-- **Data**: Contains the data parsing code and dataset
-|&emsp;|&emsp;|-- 10000Recipe.json
-|&emsp;|&emsp;|-- InsertDatabase.py
-|&emsp;|&emsp;\`-- ParseData.py  
 |&emsp;|-- .env  
 |&emsp;|-- package-lock.json  
 |&emsp;\`-- package.json  
