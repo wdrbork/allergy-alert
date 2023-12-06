@@ -80,20 +80,24 @@ other than testing and publishing the website.
 
 ### Phillip Phan
 #### Last Week's Goals:
+- Implement the totals box that appears before the recipes.
 
 #### Progress and Issues:
-What I did:
+What I did: I implemented the totals box which showed the user how many total recipes there were of what they searched
+and the percentage chance that the searched recipe has that allergy in its ingredients. Also added a variations counter
+to each recipe to know how many variations of that recipe there are.
 
-What worked:
+What worked: What worked was using javascript to implement the totals box and calculate the percentages.
 
-What I learned:
+What I learned: I learned more about javascript which I thought I knew the language but was something that
+I did not use much of. I also learned more about react and how parts of react work.
 
-Where I had trouble:
+Where I had trouble: I had some trouble relearning javascript as reading the code was somewhat confusing sometimes.
 
-Where I was blocked:
+Where I was blocked: I was blocked by nothing this week.
 
 #### Plans for next week: 
-- 
+- Implement any final features that the group wants
 
 ### Caitlyn Rawlings
 #### Last Week's Goals:

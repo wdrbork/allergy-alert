@@ -73,20 +73,23 @@ recipes
 
 ### Phillip Phan
 #### Last Week's Goals:
+- Learn more about caching
+- Implement features that we were planning to do
 
 #### Progress and Issues:
-What I did:
+What I did: I implemented a feature that made it so the recipe searched is the one that shows up first when searching and
+I learned about ways you can cache someones data.
 
-What worked:
+What worked: The feature I implemented works fine and the recipe that is searched shows up first.
 
-What I learned:
+What I learned:I learned about different ways you can store cookies
 
-Where I had trouble:
+Where I had trouble: I had trouble figure out how cookies work
 
-Where I was blocked:
+Where I was blocked: I was blocked on how to store the cookies in a way that you could tell whos cookies was whoses.
 
 #### Plans for next week: 
-- 
+- Add more features that we were planning on adding
 
 ### Caitlyn Rawlings
 #### Last Week's Goals:

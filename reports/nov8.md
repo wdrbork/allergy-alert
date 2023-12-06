@@ -88,23 +88,25 @@ recipes
 
 ### Phillip Phan
 #### Last Week's Goals:
-- I plan to learn more about MongoDB
-- Look at the datasets and plan a structure for the database
+- Reparse the data into a format more easily able to insert into database
+- Learn more about how to fetch data from mongoDB
 
 #### Progress and Issues:
-What I did: 
+What I did: I reparse the data into a json array format which can be easily insertable and then inserted the data into the
+database.
 
-What worked:
+What worked: Reparsing the data into a json array format worked really well and was easily able to connect to the
+database and insert the data.
 
-What I learned: 
+What I learned: I learn about how to connect the the database and insert data into the database using pymongo.
 
-Where I had trouble: 
+Where I had trouble: I had trouble with reformatting the data because of how large the dataset was.
 
-Where I was blocked: 
+Where I was blocked: I was busy with a project for another class this week so I did not do much.
 
 #### Plans for next week:
--
--
+- Learn more about caching
+- Implement features that we were planning to do
 
 ### Caitlyn Rawlings
 #### Last Week's Goals:

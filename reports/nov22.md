@@ -77,20 +77,24 @@ recipes
 
 ### Phillip Phan
 #### Last Week's Goals:
+- Add more features that we were planning on adding
 
 #### Progress and Issues:
-What I did:
+What I did: I did not do much this week all I did was add highlighting allergies to show
+that a recipe had an allergy on the list.
 
-What worked:
+What worked: The highligher did work and highlighted allergies on the list.
 
-What I learned:
+What I learned: I didn't learn much expect how to implement the highligher
 
-Where I had trouble:
+Where I had trouble: I didn't have any trouble
 
-Where I was blocked:
+Where I was blocked: I was blocked by my schedule and having another group project which
+shifted my focus onto that project as it was due soon. I was also blocked by wanting the highligher to highlight
+the whole new line but not being able to do that with the certain important.
 
 #### Plans for next week: 
-- 
+- Implement the totals box that appears before the recipes.
 
 ### Caitlyn Rawlings
 #### Last Week's Goals:
