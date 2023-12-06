@@ -241,6 +241,30 @@ header {
   color: #225560;
 }
 
+/* Search Filters */
+
+.filter-dropdowns-box {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 66%;
+  margin-left: 3%;
+  padding-left: 1px;
+}
+
+.results-box {
+  
+}
+
+.results-label {
+  margin: 0.7rem;
+}
+
+.results-select {
+  margin: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #ababab;
+}
+
 /* Search Results */
 
 /* outer box around all recipes */
