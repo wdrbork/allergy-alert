@@ -61,6 +61,7 @@ Then doing either of the following:
 |&emsp;|-- package-lock.json  
 |&emsp;\`-- package.json  
 |-- **reports**: Contains the teams weekly status reports  
+|&emsp;|-- dec6.md  
 |&emsp;|-- nov1.md  
 |&emsp;|-- nov15.md  
 |&emsp;|-- nov22.md  
@@ -86,8 +87,7 @@ Then doing either of the following:
 |&emsp;|&emsp;|-- index.js  
 |&emsp;|&emsp;\`-- server.js  
 |&emsp;|-- **test**: Contains testing code for the backend  
-|&emsp;|&emsp;\`-- api_tests.js
-|&emsp;|-- .env  
+|&emsp;|&emsp;\`-- api_tests.js  
 |&emsp;|-- package-lock.json  
 |&emsp;\`-- package.json  
 |-- **.gitignore**: Includes files that should not be included in git commands  
