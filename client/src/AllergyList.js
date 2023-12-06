@@ -10,10 +10,13 @@
 
 import React, { useState } from 'react';
 import './App.css';
+import { motion } from 'framer-motion';
 
-function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent}) {
+function AllergyList({isListVisible, allergies, emitAddAllergyIntent, emitDeleteAllergyIntent}) {
   const [currentAllergy, setCurrentAllergy] = useState('');
-
+  // If it's currently visible, we animate IN towards the screen
+  // else we animate OUT towards the user
+  
   const handleInputChange = (e) => {
     setCurrentAllergy(e.target.value);
   };
@@ -39,8 +42,20 @@ function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent})
     }
   }
 
+  // Variants used in animation
+  const variants = {
+    hidden: { x: '150%', pointerEvents: 'none' },
+    visible: { x: '0%', pointerEvents: 'auto' },
+  };
+
   return (
-    <div className="allergy-box">
+    <motion.div
+      className="allergy-box"
+      initial="hidden"
+      animate={isListVisible ? 'hidden' : 'visible'}
+      variants={variants}
+      transition={{ duration: 0.5, ease: 'easeInOut' }}
+    >
       <div className="allergy-search-bar">
         <input
           type="text"
@@ -59,7 +74,7 @@ function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent})
         {allergies ? allergies.map(allergy => (
           <div className="allergy-tag" key={allergy}>
             
-            <a onClick={(env) => deleteAllergy(allergy)} style={{cursor: "pointer"}}>
+            <a href="/"onClick={(env) => deleteAllergy(allergy)} style={{cursor: "pointer"}}>
               {allergy + " "}
               
               <strong>⨯</strong>
@@ -67,9 +82,8 @@ function AllergyList({allergies, emitAddAllergyIntent, emitDeleteAllergyIntent})
           </div>
         )) : ""}
       </div>
-    </div>
+    </motion.div>
   );
-  
 }
 
 export default AllergyList;
