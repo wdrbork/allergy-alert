@@ -21,7 +21,7 @@ import SearchRecipeLabel from './SearchRecipe';
 
 let backend_url = "https://allergy-alert-backend.onrender.com";
 if (process.env.NODE_ENV === "development") {
-  backend_url =  "http://10.18.98.6:5000" //"http://localhost:5000";
+  backend_url = "http://localhost:5000";
 }
 
 let cookie_value;
