@@ -84,8 +84,8 @@ Then doing either of the following:
 |&emsp;|-- **test**: Contains testing code for the backend  
 |&emsp;|&emsp;\`-- api_tests.js
 |&emsp;|-- **Data**: Contains the data parsing code and dataset
-|&emsp;|&emsp;\`-- 10000Recipe.json
-|&emsp;|&emsp;\`-- InsertDatabase.py
+|&emsp;|&emsp;|-- 10000Recipe.json
+|&emsp;|&emsp;|-- InsertDatabase.py
 |&emsp;|&emsp;\`-- ParseData.py  
 |&emsp;|-- .env  
 |&emsp;|-- package-lock.json  
