@@ -77,13 +77,28 @@ function App() {
         let results = [];
 
         data["recipes"].forEach((recipe, index) => {
-          if (results.length >= numResults) {
-            return;
-          }
-          
-
-          // makes it so the exact match is shown first
-          if (recipe.Name.toLowerCase() === query.toLowerCase()) {
+          if (results.length < numResults || numResults === "Max") {
+            // makes it so the exact match is shown first
+            if (recipe.Name.toLowerCase() === query.toLowerCase()) {
+              const recipeObj = recipeToString(recipe);
+              if (filter === "None") {
+                results.unshift(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results with allergens" && recipeObj[1]) {
+                results.unshift(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+                results.unshift(<div key={index}>{recipeObj[0]}</div>);
+              } 
+            } else {
+              const recipeObj = recipeToString(recipe);
+              if (filter === "None") {
+                results.push(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results with allergens" && recipeObj[1]) {
+                results.push(<div key={index}>{recipeObj[0]}</div>);
+              } else if (filter === "Show results without allergens" && !recipeObj[1]) {
+                results.push(<div key={index}>{recipeObj[0]}</div>);
+              } 
+            }
+          } else if (recipe.Name.toLowerCase() === query.toLowerCase()) {
             const recipeObj = recipeToString(recipe);
             if (filter === "None") {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
@@ -91,16 +106,7 @@ function App() {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
             } else if (filter === "Show results without allergens" && !recipeObj[1]) {
               results.unshift(<div key={index}>{recipeObj[0]}</div>);
-            } 
-          } else {
-            const recipeObj = recipeToString(recipe);
-            if (filter === "None") {
-              results.push(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "Show results with allergens" && recipeObj[1]) {
-              results.push(<div key={index}>{recipeObj[0]}</div>);
-            } else if (filter === "Show results without allergens" && !recipeObj[1]) {
-              results.push(<div key={index}>{recipeObj[0]}</div>);
-            } 
+            }
           }
         });
         
