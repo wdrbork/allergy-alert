@@ -56,19 +56,19 @@ Where I was blocked: I had an interview this past Thursday that prevented me fro
 - Look at the datasets and plan a structure for the database
 
 #### Progress and Issues:
-What I did: 
+What I did: I made python code to parse the data into something that will be insertable into database
 
-What worked:
+What worked: Using python to read the data and then parse it.
 
-What I learned: 
+What I learned: I learned more about pandas and how to use pandas to parse the data into what I needed.
 
-Where I had trouble: 
+Where I had trouble: I had some trouble reading the data because of how large it is.
 
-Where I was blocked: 
+Where I was blocked: There was nothing that was really blocking me this week
 
 #### Plans for next week:
--
--
+- I plan to learn more about MongoDB
+- Insert data into MongoDB
 
 ### Caitlyn Rawlings
 #### Last Week's Goals:

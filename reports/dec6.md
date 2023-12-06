@@ -39,17 +39,21 @@ Where I was blocked:
 
 ### Phillip Phan
 #### Last Week's Goals:
+- Implement any final features that the group wants
 
 #### Progress and Issues:
-What I did:
+What I did: I removed highlighter since it was behaving weird and redid it so the ingredient in the recipe that are an allergy
+instead show up first in the list. I also worked on expanding the database to have more data but decided to revert that as there was to much
+data.
 
-What worked:
+What worked: Having the ingredients that are allergy pop up first on the list
 
-What I learned:
+What I learned: I learned about how slow our website would get with a very large dataset
 
-Where I had trouble:
+Where I had trouble: Tried making it so our database had half a million recipes but that really slowed down our website search so
+we revert back to a smaller amount of recipes
 
-Where I was blocked:
+Where I was blocked: I was blocked by my other final group project which is due at similar times to this project.
 
 
 ### Caitlyn Rawlings

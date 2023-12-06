@@ -62,22 +62,23 @@ miss last Thursday's meeting, but I am fully recovered now.
 ### Phillip Phan
 #### Last Week's Goals:
 - I plan to learn more about MongoDB
-- Look at the datasets and plan a structure for the database
+- Insert data into the MongoDB database
 
 #### Progress and Issues:
-What I did: 
+What I did: I took a look at what the structure of mongoDB database
 
-What worked:
+What worked: Creating a mongoDB database and getting access to reily's server which held the database
 
-What I learned: 
+What I learned: I learned about the structure of structure of MongoDB database where it uses documents and collections.
 
-Where I had trouble: 
+Where I had trouble: The data that I had parsed before I was expecting to insert into a normal database where it was columns and rows but
+now knowing about the structure of MongoDB I have to reparse my data into something more easily insertable.
 
-Where I was blocked: 
+Where I was blocked: There was nothing this week that I was blocked on.
 
 #### Plans for next week:
--
--
+- Reparse the data into a format more easily able to insert into database
+- Learn more about how to fetch data from mongoDB
 
 ### Caitlyn Rawlings
 #### Last Week's Goals:
